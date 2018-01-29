@@ -1,0 +1,9 @@
+{
+    "thcssondongApp": {
+        "Active" : {
+            "null": "",
+            "DEACTIVE": "DEACTIVE",
+            "ACTIVE": "ACTIVE"
+        }
+    }
+}

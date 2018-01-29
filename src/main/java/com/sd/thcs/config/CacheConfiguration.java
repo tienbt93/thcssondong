@@ -42,6 +42,22 @@ public class CacheConfiguration {
             cm.createCache(com.sd.thcs.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.sd.thcs.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.sd.thcs.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.School.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.School.class.getName() + ".teachers", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.School.class.getName() + ".rooms", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Teacher.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Teacher.class.getName() + ".lessons", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Semester.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Semester.class.getName() + ".weeks", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Week.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Week.class.getName() + ".lessons", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Subject.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Subject.class.getName() + ".lessons", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Lesson.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Room.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.Room.class.getName() + ".lessons", jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.ClassSchool.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sd.thcs.domain.ClassSchool.class.getName() + ".lessons", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,56 @@
+
+<div *ngIf="teacher">
+    <h2><span jhiTranslate="thcssondongApp.teacher.detail.title">Teacher</span> {{teacher.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{teacher.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.hireDate">Hire Date</span></dt>
+        <dd>
+            <span>{{teacher.hireDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.salaryRate">Salary Rate</span></dt>
+        <dd>
+            <span>{{teacher.salaryRate}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.title">Title</span></dt>
+        <dd>
+            <span>{{teacher.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.trainTitle">Train Title</span></dt>
+        <dd>
+            <span jhiTranslate="{{'thcssondongApp.TrainTitle.' + teacher.trainTitle}}">{{teacher.trainTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.isActive">Is Active</span></dt>
+        <dd>
+            <span jhiTranslate="{{'thcssondongApp.Active.' + teacher.isActive}}">{{teacher.isActive}}</span>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.school">School</span></dt>
+        <dd>
+            <div *ngIf="teacher.schoolId">
+                <a [routerLink]="['/school-my-suffix', teacher.schoolId]">{{teacher.schoolId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="thcssondongApp.teacher.user">User</span></dt>
+        <dd>
+            {{teacher.userId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

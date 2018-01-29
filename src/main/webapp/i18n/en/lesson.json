@@ -1,0 +1,29 @@
+{
+    "thcssondongApp": {
+        "lesson" : {
+            "home": {
+                "title": "Lessons",
+                "createLabel": "Create a new Lesson",
+                "createOrEditLabel": "Create or edit a Lesson"
+            },
+            "created": "A new Lesson is created with identifier {{ param }}",
+            "updated": "A Lesson is updated with identifier {{ param }}",
+            "deleted": "A Lesson is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Lesson {{ id }}?"
+            },
+            "detail": {
+                "title": "Lesson"
+            },
+            "date": "Date",
+            "ordinalNumber": "Ordinal Number",
+            "lessonTitle": "Lesson Title",
+            "isActive": "Is Active",
+            "teacher": "Teacher",
+            "week": "Week",
+            "subject": "Subject",
+            "room": "Room",
+            "classSchool": "Class School"
+        }
+    }
+}

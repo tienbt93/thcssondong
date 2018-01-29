@@ -1,0 +1,29 @@
+{
+    "thcssondongApp": {
+        "teacher" : {
+            "home": {
+                "title": "Teachers",
+                "createLabel": "Thêm mới một Teacher",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Teacher"
+            },
+            "created": "Một Teacher mới được tạo với định danh {{ param }}",
+            "updated": "Một Teacher cập nhật với định danh {{ param }}",
+            "deleted": "Một Teacher đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Teacher {{ id }}?"
+            },
+            "detail": {
+                "title": "Teacher"
+            },
+            "phoneNumber": "Phone Number",
+            "hireDate": "Hire Date",
+            "salaryRate": "Salary Rate",
+            "title": "Title",
+            "trainTitle": "Train Title",
+            "isActive": "Is Active",
+            "school": "School",
+            "user": "User",
+            "lesson": "Lesson"
+        }
+    }
+}

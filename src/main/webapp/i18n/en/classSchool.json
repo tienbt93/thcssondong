@@ -1,0 +1,24 @@
+{
+    "thcssondongApp": {
+        "classSchool" : {
+            "home": {
+                "title": "Class Schools",
+                "createLabel": "Create a new Class School",
+                "createOrEditLabel": "Create or edit a Class School"
+            },
+            "created": "A new Class School is created with identifier {{ param }}",
+            "updated": "A Class School is updated with identifier {{ param }}",
+            "deleted": "A Class School is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Class School {{ id }}?"
+            },
+            "detail": {
+                "title": "Class School"
+            },
+            "className": "Class Name",
+            "description": "Description",
+            "isActive": "Is Active",
+            "lesson": "Lesson"
+        }
+    }
+}

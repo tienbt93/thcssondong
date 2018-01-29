@@ -7,6 +7,14 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "schoolMySuffix": "School",
+                "teacherMySuffix": "Teacher",
+                "semesterMySuffix": "Semester",
+                "weekMySuffix": "Week",
+                "subjectMySuffix": "Subject",
+                "lessonMySuffix": "Lesson",
+                "roomMySuffix": "Room",
+                "classSchoolMySuffix": "Class School",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
