@@ -38,8 +38,38 @@ public class TeacherDTO implements Serializable {
     private Long schoolId;
 
     private Long userId;
+    
+    private String schoolName;
 
-    public Long getId() {
+    private String userLogin;
+    
+    private String fullname;
+    
+    public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public String getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public Long getId() {
         return id;
     }
 

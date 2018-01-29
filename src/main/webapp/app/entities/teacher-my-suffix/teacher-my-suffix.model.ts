@@ -21,6 +21,9 @@ export class TeacherMySuffix implements BaseEntity {
         public isActive?: Active,
         public schoolId?: number,
         public userId?: number,
+        public schoolName?: String,
+        public userLogin?: String,
+        public fullname?: String,
         public lessons?: BaseEntity[],
     ) {
     }

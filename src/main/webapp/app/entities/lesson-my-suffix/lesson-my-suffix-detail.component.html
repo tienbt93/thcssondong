@@ -20,7 +20,7 @@
         <dd>
             <span jhiTranslate="{{'thcssondongApp.Active.' + lesson.isActive}}">{{lesson.isActive}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.lesson.teacher">Teacher</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.lesson.teacher">Giáo viên</span></dt>
         <dd>
             <div *ngIf="lesson.teacherId">
                 <a [routerLink]="['/teacher-my-suffix', lesson.teacherId]">{{lesson.teacherId}}</a>
@@ -38,7 +38,7 @@
                 <a [routerLink]="['/subject-my-suffix', lesson.subjectId]">{{lesson.subjectId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.lesson.room">Room</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.lesson.room">Phòng học</span></dt>
         <dd>
             <div *ngIf="lesson.roomId">
                 <a [routerLink]="['/room-my-suffix', lesson.roomId]">{{lesson.roomId}}</a>

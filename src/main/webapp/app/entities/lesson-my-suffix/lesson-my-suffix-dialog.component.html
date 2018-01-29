@@ -68,7 +68,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.teacher" for="field_teacher">Teacher</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.teacher" for="field_teacher">Giáo viên</label>
             <select class="form-control" id="field_teacher" name="teacher" [(ngModel)]="lesson.teacherId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="teacherOption.id" *ngFor="let teacherOption of teachers; trackBy: trackTeacherById">{{teacherOption.id}}</option>
@@ -89,7 +89,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.room" for="field_room">Room</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.room" for="field_room">Phòng học</label>
             <select class="form-control" id="field_room" name="room" [(ngModel)]="lesson.roomId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="roomOption.id" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.id}}</option>

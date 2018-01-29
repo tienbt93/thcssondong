@@ -3,14 +3,14 @@
         "room" : {
             "home": {
                 "title": "Quản lý Phòng học",
-                "createLabel": "Thêm mới một Room",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Room"
+                "createLabel": "Thêm mới một Phòng học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Phòng học"
             },
-            "created": "Một Room mới được tạo với định danh {{ param }}",
-            "updated": "Một Room cập nhật với định danh {{ param }}",
-            "deleted": "Một Room đã xóa với định danh {{ param }}",
+            "created": "Một Phòng học mới được tạo với định danh {{ param }}",
+            "updated": "Một Phòng học cập nhật với định danh {{ param }}",
+            "deleted": "Một Phòng học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Room {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Phòng học {{ id }}?"
             },
             "detail": {
                 "title": "Phòng học"

@@ -4,7 +4,7 @@
         <button class="btn btn-primary float-right jh-create-entity create-teacher-my-suffix" [routerLink]="['/', { outlets: { popup: ['teacher-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.teacher.home.createLabel">
-            Thêm thông tin Teacher
+            Thêm thông tin Giáo viên
             </span>
         </button>
     </h2>
@@ -39,11 +39,11 @@
                 <td jhiTranslate="{{'thcssondongApp.Active.' + teacher.isActive}}">{{teacher.isActive}}</td>
                 <td>
                     <div *ngIf="teacher.schoolId">
-                        <a [routerLink]="['../school-my-suffix', teacher.schoolId  ]" >{{teacher.schoolId}}</a>
+                        <a [routerLink]="['../school-my-suffix', teacher.schoolId  ]" >{{teacher.schoolName}}</a>
                     </div>
                 </td>
                 <td>
-                    {{teacher.userId}}
+                    {{teacher.userLogin}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
