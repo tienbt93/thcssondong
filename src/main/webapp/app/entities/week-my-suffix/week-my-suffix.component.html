@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="thcssondongApp.week.home.title">Weeks</span>
+        <button class="btn btn-primary float-right jh-create-entity create-week-my-suffix" [routerLink]="['/', { outlets: { popup: ['week-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="thcssondongApp.week.home.createLabel">
+            Create new Week
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="weeks">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weekName"><span jhiTranslate="thcssondongApp.week.weekName">Week Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.week.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="semesterId"><span jhiTranslate="thcssondongApp.week.semester">Semester</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let week of weeks ;trackBy: trackId">
+                <td><a [routerLink]="['../week-my-suffix', week.id ]">{{week.id}}</a></td>
+                <td>{{week.weekName}}</td>
+                <td jhiTranslate="{{'thcssondongApp.Active.' + week.isActive}}">{{week.isActive}}</td>
+                <td>
+                    <div *ngIf="week.semesterId">
+                        <a [routerLink]="['../semester-my-suffix', week.semesterId  ]" >{{week.semesterId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../week-my-suffix', week.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'week-my-suffix/'+ week.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'week-my-suffix/'+ week.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="weeks && weeks.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

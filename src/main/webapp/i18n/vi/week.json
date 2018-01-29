@@ -1,0 +1,24 @@
+{
+    "thcssondongApp": {
+        "week" : {
+            "home": {
+                "title": "Weeks",
+                "createLabel": "Thêm mới một Week",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Week"
+            },
+            "created": "Một Week mới được tạo với định danh {{ param }}",
+            "updated": "Một Week cập nhật với định danh {{ param }}",
+            "deleted": "Một Week đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Week {{ id }}?"
+            },
+            "detail": {
+                "title": "Week"
+            },
+            "weekName": "Week Name",
+            "isActive": "Is Active",
+            "semester": "Semester",
+            "lesson": "Lesson"
+        }
+    }
+}

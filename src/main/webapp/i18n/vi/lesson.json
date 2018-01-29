@@ -1,0 +1,29 @@
+{
+    "thcssondongApp": {
+        "lesson" : {
+            "home": {
+                "title": "Lessons",
+                "createLabel": "Thêm mới một Lesson",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Lesson"
+            },
+            "created": "Một Lesson mới được tạo với định danh {{ param }}",
+            "updated": "Một Lesson cập nhật với định danh {{ param }}",
+            "deleted": "Một Lesson đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Lesson {{ id }}?"
+            },
+            "detail": {
+                "title": "Lesson"
+            },
+            "date": "Date",
+            "ordinalNumber": "Ordinal Number",
+            "lessonTitle": "Lesson Title",
+            "isActive": "Is Active",
+            "teacher": "Teacher",
+            "week": "Week",
+            "subject": "Subject",
+            "room": "Room",
+            "classSchool": "Class School"
+        }
+    }
+}

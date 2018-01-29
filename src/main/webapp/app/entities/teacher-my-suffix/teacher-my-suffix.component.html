@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="thcssondongApp.teacher.home.title">Teachers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-teacher-my-suffix" [routerLink]="['/', { outlets: { popup: ['teacher-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="thcssondongApp.teacher.home.createLabel">
+            Create new Teacher
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="teachers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Phone Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hireDate"><span jhiTranslate="thcssondongApp.teacher.hireDate">Hire Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="salaryRate"><span jhiTranslate="thcssondongApp.teacher.salaryRate">Salary Rate</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="thcssondongApp.teacher.title">Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="trainTitle"><span jhiTranslate="thcssondongApp.teacher.trainTitle">Train Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.teacher.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="schoolId"><span jhiTranslate="thcssondongApp.teacher.school">School</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userId"><span jhiTranslate="thcssondongApp.teacher.user">User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let teacher of teachers ;trackBy: trackId">
+                <td><a [routerLink]="['../teacher-my-suffix', teacher.id ]">{{teacher.id}}</a></td>
+                <td>{{teacher.phoneNumber}}</td>
+                <td>{{teacher.hireDate | date:'mediumDate'}}</td>
+                <td>{{teacher.salaryRate}}</td>
+                <td>{{teacher.title}}</td>
+                <td jhiTranslate="{{'thcssondongApp.TrainTitle.' + teacher.trainTitle}}">{{teacher.trainTitle}}</td>
+                <td jhiTranslate="{{'thcssondongApp.Active.' + teacher.isActive}}">{{teacher.isActive}}</td>
+                <td>
+                    <div *ngIf="teacher.schoolId">
+                        <a [routerLink]="['../school-my-suffix', teacher.schoolId  ]" >{{teacher.schoolId}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{teacher.userId}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../teacher-my-suffix', teacher.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="teachers && teachers.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
