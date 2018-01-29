@@ -2,26 +2,26 @@
     "thcssondongApp": {
         "school" : {
             "home": {
-                "title": "Schools",
-                "createLabel": "Thêm mới một School",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật School"
+                "title": "Danh sách Trường học",
+                "createLabel": "Thêm mới một Trường học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Trường học"
             },
-            "created": "Một School mới được tạo với định danh {{ param }}",
-            "updated": "Một School cập nhật với định danh {{ param }}",
-            "deleted": "Một School đã xóa với định danh {{ param }}",
+            "created": "Một Trường học mới được tạo với định danh {{ param }}",
+            "updated": "Một Trường học cập nhật với định danh {{ param }}",
+            "deleted": "Một Trường học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa School {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Trường học {{ id }}?"
             },
             "detail": {
-                "title": "School"
+                "title": "Trường học"
             },
-            "schoolNam": "School Nam",
-            "schoolAddress": "School Address",
-            "phoneNumber": "Phone Number",
+            "schoolNam": "Tên Trường",
+            "schoolAddress": "Địa chỉ",
+            "phoneNumber": "Số điện thoại",
             "email": "Email",
-            "isActive": "Is Active",
-            "teacher": "Teacher",
-            "room": "Room"
+            "isActive": "Trạng thái",
+            "teacher": "Giáo viên",
+            "room": "Phòng học"
         }
     }
 }

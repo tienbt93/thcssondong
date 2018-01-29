@@ -1,45 +1,45 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="mySubjectLabel" jhiTranslate="thcssondongApp.subject.home.createOrEditLabel">Create or edit a Subject</h4>
+        <h4 class="modal-title" id="mySubjectLabel" jhiTranslate="thcssondongApp.subject.home.createOrEditLabel">Thêm hoặc sửa một Môn học</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!subject.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <label for="id" jhiTranslate="global.field.id">Mã</label>
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="subject.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.subjectName" for="field_subjectName">Subject Name</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.subjectName" for="field_subjectName">Tên Môn học</label>
             <input type="text" class="form-control" name="subjectName" id="field_subjectName"
                 [(ngModel)]="subject.subjectName" required/>
             <div [hidden]="!(editForm.controls.subjectName?.dirty && editForm.controls.subjectName?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.subjectName?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.totalHours" for="field_totalHours">Total Hours</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.totalHours" for="field_totalHours">Tổng số Tiết học</label>
             <input type="number" class="form-control" name="totalHours" id="field_totalHours"
                 [(ngModel)]="subject.totalHours" required/>
             <div [hidden]="!(editForm.controls.totalHours?.dirty && editForm.controls.totalHours?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.totalHours?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
                 <small class="form-text text-danger"
                     [hidden]="!editForm.controls.totalHours?.errors?.number" jhiTranslate="entity.validation.number">
-                    This field should be a number.
+                    Thông tin này nên là một số.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.isActive" for="field_isActive">Is Active</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.subject.isActive" for="field_isActive">Trạng thái</label>
             <select class="form-control" name="isActive" [(ngModel)]="subject.isActive" id="field_isActive"  required>
                 <option value="DEACTIVE">{{'thcssondongApp.Active.DEACTIVE' | translate}}</option>
                 <option value="ACTIVE">{{'thcssondongApp.Active.ACTIVE' | translate}}</option>
@@ -47,7 +47,7 @@
             <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
@@ -55,10 +55,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Lưu lại</span>
         </button>
     </div>
 </form>

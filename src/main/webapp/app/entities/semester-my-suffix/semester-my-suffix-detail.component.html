@@ -1,26 +1,26 @@
 
 <div *ngIf="semester">
-    <h2><span jhiTranslate="thcssondongApp.semester.detail.title">Semester</span> {{semester.id}}</h2>
+    <h2><span jhiTranslate="thcssondongApp.semester.detail.title">Kỳ học</span> {{semester.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="thcssondongApp.semester.semesterName">Semester Name</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.semester.semesterName">Tên Học kỳ</span></dt>
         <dd>
             <span>{{semester.semesterName}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.semester.startDate">Start Date</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.semester.startDate">Ngày bắt đầu</span></dt>
         <dd>
             <span>{{semester.startDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.semester.endDate">End Date</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.semester.endDate">Ngày kết thúc</span></dt>
         <dd>
             <span>{{semester.endDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.semester.totalWeek">Total Week</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.semester.totalWeek">Tổng số Tuần học</span></dt>
         <dd>
             <span>{{semester.totalWeek}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.semester.isActive">Is Active</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.semester.isActive">Trạng thái</span></dt>
         <dd>
             <span jhiTranslate="{{'thcssondongApp.Active.' + semester.isActive}}">{{semester.isActive}}</span>
         </dd>
@@ -29,7 +29,7 @@
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Quay lại</span>
     </button>
 
     <button type="button"
@@ -37,6 +37,6 @@
             replaceUrl="true"
             queryParamsHandling="merge"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Xem</span>
     </button>
 </div>

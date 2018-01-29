@@ -2,23 +2,23 @@
     "thcssondongApp": {
         "classSchool" : {
             "home": {
-                "title": "Class Schools",
-                "createLabel": "Thêm mới một Class School",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Class School"
+                "title": "Danh sách Lớp học",
+                "createLabel": "Thêm mới một Lớp học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Lớp học"
             },
-            "created": "Một Class School mới được tạo với định danh {{ param }}",
-            "updated": "Một Class School cập nhật với định danh {{ param }}",
-            "deleted": "Một Class School đã xóa với định danh {{ param }}",
+            "created": "Một Lớp học mới được tạo với định danh {{ param }}",
+            "updated": "Một Lớp học cập nhật với định danh {{ param }}",
+            "deleted": "Một Lớp học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Class School {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Lớp học {{ id }}?"
             },
             "detail": {
-                "title": "Class School"
+                "title": "Lớp học"
             },
-            "className": "Class Name",
-            "description": "Description",
-            "isActive": "Is Active",
-            "lesson": "Lesson"
+            "className": "Tên Lớp học",
+            "description": "Mô tả",
+            "isActive": "Trạng thái",
+            "lesson": "Tiết học"
         }
     }
 }

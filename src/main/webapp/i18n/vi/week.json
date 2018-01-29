@@ -2,23 +2,23 @@
     "thcssondongApp": {
         "week" : {
             "home": {
-                "title": "Weeks",
-                "createLabel": "Thêm mới một Week",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Week"
+                "title": "Danh sách Tuần học",
+                "createLabel": "Thêm mới một Tuần học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Tuần học"
             },
-            "created": "Một Week mới được tạo với định danh {{ param }}",
-            "updated": "Một Week cập nhật với định danh {{ param }}",
-            "deleted": "Một Week đã xóa với định danh {{ param }}",
+            "created": "Một Tuần học mới được tạo với định danh {{ param }}",
+            "updated": "Một Tuần học cập nhật với định danh {{ param }}",
+            "deleted": "Một Tuần học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Week {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Tuần học {{ id }}?"
             },
             "detail": {
-                "title": "Week"
+                "title": "Tuần học"
             },
-            "weekName": "Week Name",
-            "isActive": "Is Active",
-            "semester": "Semester",
-            "lesson": "Lesson"
+            "weekName": "Tên Tuần học",
+            "isActive": "Trạng thái",
+            "semester": "Học kỳ",
+            "lesson": "Tiết học"
         }
     }
 }

@@ -15,8 +15,8 @@
             "detail": {
                 "title": "School"
             },
-            "schoolNam": "School Nam",
-            "schoolAddress": "School Address",
+            "schoolNam": "School Name",
+            "schoolAddress": "Address",
             "phoneNumber": "Phone Number",
             "email": "Email",
             "isActive": "Is Active",

@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span jhiTranslate="thcssondongApp.semester.home.title">Semesters</span>
+        <span jhiTranslate="thcssondongApp.semester.home.title">Danh sách Kỳ học</span>
         <button class="btn btn-primary float-right jh-create-entity create-semester-my-suffix" [routerLink]="['/', { outlets: { popup: ['semester-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.semester.home.createLabel">
-            Create new Semester
+            Thêm thông tin Kỳ học
             </span>
         </button>
     </h2>
@@ -16,12 +16,12 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="semesterName"><span jhiTranslate="thcssondongApp.semester.semesterName">Semester Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="startDate"><span jhiTranslate="thcssondongApp.semester.startDate">Start Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="endDate"><span jhiTranslate="thcssondongApp.semester.endDate">End Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="totalWeek"><span jhiTranslate="thcssondongApp.semester.totalWeek">Total Week</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.semester.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="semesterName"><span jhiTranslate="thcssondongApp.semester.semesterName">Tên Học kỳ</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startDate"><span jhiTranslate="thcssondongApp.semester.startDate">Ngày bắt đầu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endDate"><span jhiTranslate="thcssondongApp.semester.endDate">Ngày kết thúc</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totalWeek"><span jhiTranslate="thcssondongApp.semester.totalWeek">Tổng số Tuần học</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.semester.isActive">Trạng thái</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -39,7 +39,7 @@
                                 [routerLink]="['../semester-my-suffix', semester.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'semester-my-suffix/'+ semester.id + '/edit'} }]"
@@ -47,7 +47,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'semester-my-suffix/'+ semester.id + '/delete'} }]"
@@ -55,7 +55,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
                         </button>
                     </div>
                 </td>

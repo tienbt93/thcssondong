@@ -1,14 +1,14 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myRoomLabel" jhiTranslate="thcssondongApp.room.home.createOrEditLabel">Create or edit a Room</h4>
+        <h4 class="modal-title" id="myRoomLabel" jhiTranslate="thcssondongApp.room.home.createOrEditLabel">Thêm hoặc sửa một Room</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!room.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <label for="id" jhiTranslate="global.field.id">Mã</label>
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="room.id" readonly />
         </div>
@@ -19,17 +19,17 @@
             <div [hidden]="!(editForm.controls.roomName?.dirty && editForm.controls.roomName?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.roomName?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.room.description" for="field_description">Description</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.room.description" for="field_description">Mô tả</label>
             <input type="text" class="form-control" name="description" id="field_description"
                 [(ngModel)]="room.description" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.room.isActive" for="field_isActive">Is Active</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.room.isActive" for="field_isActive">Trạng thái</label>
             <select class="form-control" name="isActive" [(ngModel)]="room.isActive" id="field_isActive"  required>
                 <option value="DEACTIVE">{{'thcssondongApp.Active.DEACTIVE' | translate}}</option>
                 <option value="ACTIVE">{{'thcssondongApp.Active.ACTIVE' | translate}}</option>
@@ -37,13 +37,13 @@
             <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.room.school" for="field_school">School</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.room.school" for="field_school">Trường học</label>
             <select class="form-control" id="field_school" name="school" [(ngModel)]="room.schoolId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="schoolOption.id" *ngFor="let schoolOption of schools; trackBy: trackSchoolById">{{schoolOption.id}}</option>
@@ -52,10 +52,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Lưu lại</span>
         </button>
     </div>
 </form>

@@ -1,18 +1,18 @@
 
 <div *ngIf="subject">
-    <h2><span jhiTranslate="thcssondongApp.subject.detail.title">Subject</span> {{subject.id}}</h2>
+    <h2><span jhiTranslate="thcssondongApp.subject.detail.title">Môn học</span> {{subject.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="thcssondongApp.subject.subjectName">Subject Name</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.subject.subjectName">Tên Môn học</span></dt>
         <dd>
             <span>{{subject.subjectName}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.subject.totalHours">Total Hours</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.subject.totalHours">Tổng số Tiết học</span></dt>
         <dd>
             <span>{{subject.totalHours}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.subject.isActive">Is Active</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.subject.isActive">Trạng thái</span></dt>
         <dd>
             <span jhiTranslate="{{'thcssondongApp.Active.' + subject.isActive}}">{{subject.isActive}}</span>
         </dd>
@@ -21,7 +21,7 @@
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Quay lại</span>
     </button>
 
     <button type="button"
@@ -29,6 +29,6 @@
             replaceUrl="true"
             queryParamsHandling="merge"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Xem</span>
     </button>
 </div>

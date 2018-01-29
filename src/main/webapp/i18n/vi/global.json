@@ -1,20 +1,21 @@
 {
     "global": {
-        "title": "Thcssondong",
+        "title": "Trường THCS Sơn Đông",
         "browsehappy": "Bạn đang sử dụng một trình duyệt <strong>quá cũ</strong>. Vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt</a> của bạn để có trải nghiệm tốt nhất.",
         "menu": {
             "home": "Trang chủ",
+            "mylesson": "Lịch giảng dạy",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Thực thể",
-                "schoolMySuffix": "School",
-                "teacherMySuffix": "Teacher",
-                "semesterMySuffix": "Semester",
-                "weekMySuffix": "Week",
-                "subjectMySuffix": "Subject",
-                "lessonMySuffix": "Lesson",
-                "roomMySuffix": "Room",
-                "classSchoolMySuffix": "Class School",
+                "main": "Quản lý",
+                "schoolMySuffix": "Quản lý Trường học",
+                "teacherMySuffix": "Quản lý Giáo viên",
+                "subjectMySuffix": "Quản lý Môn học",
+                "roomMySuffix": "Quản lý Phòng học",
+                "classSchoolMySuffix": "Quản lý Lớp học",
+                "semesterMySuffix": "Quản lý Học kỳ",
+                "weekMySuffix": "Quản lý Tuần học",
+                "lessonMySuffix": "Quản lý Tiết học",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -87,7 +88,7 @@
             }
         },
         "field": {
-            "id": "ID"
+            "id": "Mã"
         },
         "ribbon": {
             "dev":"Phát triển"

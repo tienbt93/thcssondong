@@ -1,30 +1,30 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myWeekLabel" jhiTranslate="thcssondongApp.week.home.createOrEditLabel">Create or edit a Week</h4>
+        <h4 class="modal-title" id="myWeekLabel" jhiTranslate="thcssondongApp.week.home.createOrEditLabel">Thêm hoặc sửa một Tuần học</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!week.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <label for="id" jhiTranslate="global.field.id">Mã</label>
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="week.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.week.weekName" for="field_weekName">Week Name</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.week.weekName" for="field_weekName">Tên Tuần học</label>
             <input type="text" class="form-control" name="weekName" id="field_weekName"
                 [(ngModel)]="week.weekName" required/>
             <div [hidden]="!(editForm.controls.weekName?.dirty && editForm.controls.weekName?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.weekName?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.week.isActive" for="field_isActive">Is Active</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.week.isActive" for="field_isActive">Trạng thái</label>
             <select class="form-control" name="isActive" [(ngModel)]="week.isActive" id="field_isActive"  required>
                 <option value="DEACTIVE">{{'thcssondongApp.Active.DEACTIVE' | translate}}</option>
                 <option value="ACTIVE">{{'thcssondongApp.Active.ACTIVE' | translate}}</option>
@@ -32,13 +32,13 @@
             <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.week.semester" for="field_semester">Semester</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.week.semester" for="field_semester">Kỳ học</label>
             <select class="form-control" id="field_semester" name="semester" [(ngModel)]="week.semesterId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="semesterOption.id" *ngFor="let semesterOption of semesters; trackBy: trackSemesterById">{{semesterOption.id}}</option>
@@ -47,10 +47,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Lưu lại</span>
         </button>
     </div>
 </form>

@@ -1,30 +1,30 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="mySemesterLabel" jhiTranslate="thcssondongApp.semester.home.createOrEditLabel">Create or edit a Semester</h4>
+        <h4 class="modal-title" id="mySemesterLabel" jhiTranslate="thcssondongApp.semester.home.createOrEditLabel">Thêm hoặc sửa một Kỳ học</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!semester.id">
-            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <label for="id" jhiTranslate="global.field.id">Mã</label>
             <input type="text" class="form-control" id="id" name="id"
                    [(ngModel)]="semester.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.semesterName" for="field_semesterName">Semester Name</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.semesterName" for="field_semesterName">Tên Học kỳ</label>
             <input type="text" class="form-control" name="semesterName" id="field_semesterName"
                 [(ngModel)]="semester.semesterName" required/>
             <div [hidden]="!(editForm.controls.semesterName?.dirty && editForm.controls.semesterName?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.semesterName?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.startDate" for="field_startDate">Start Date</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.startDate" for="field_startDate">Ngày bắt đầu</label>
             <div class="input-group">
                 <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="semester.startDate"
                 required/>
@@ -35,12 +35,12 @@
             <div [hidden]="!(editForm.controls.startDate?.dirty && editForm.controls.startDate?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.startDate?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.endDate" for="field_endDate">End Date</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.endDate" for="field_endDate">Ngày kết thúc</label>
             <div class="input-group">
                 <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" [(ngModel)]="semester.endDate"
                 required/>
@@ -51,27 +51,27 @@
             <div [hidden]="!(editForm.controls.endDate?.dirty && editForm.controls.endDate?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.endDate?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.totalWeek" for="field_totalWeek">Total Week</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.totalWeek" for="field_totalWeek">Tổng số Tuần học</label>
             <input type="number" class="form-control" name="totalWeek" id="field_totalWeek"
                 [(ngModel)]="semester.totalWeek" required/>
             <div [hidden]="!(editForm.controls.totalWeek?.dirty && editForm.controls.totalWeek?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.totalWeek?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
                 <small class="form-text text-danger"
                     [hidden]="!editForm.controls.totalWeek?.errors?.number" jhiTranslate="entity.validation.number">
-                    This field should be a number.
+                    Thông tin này nên là một số.
                 </small>
             </div>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.isActive" for="field_isActive">Is Active</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.semester.isActive" for="field_isActive">Trạng thái</label>
             <select class="form-control" name="isActive" [(ngModel)]="semester.isActive" id="field_isActive"  required>
                 <option value="DEACTIVE">{{'thcssondongApp.Active.DEACTIVE' | translate}}</option>
                 <option value="ACTIVE">{{'thcssondongApp.Active.ACTIVE' | translate}}</option>
@@ -79,7 +79,7 @@
             <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
@@ -87,10 +87,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Hủy</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Lưu lại</span>
         </button>
     </div>
 </form>

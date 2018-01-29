@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span jhiTranslate="thcssondongApp.teacher.home.title">Teachers</span>
+        <span jhiTranslate="thcssondongApp.teacher.home.title">Danh sách giáo viên</span>
         <button class="btn btn-primary float-right jh-create-entity create-teacher-my-suffix" [routerLink]="['/', { outlets: { popup: ['teacher-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.teacher.home.createLabel">
-            Create new Teacher
+            Thêm thông tin Teacher
             </span>
         </button>
     </h2>
@@ -16,14 +16,14 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="phoneNumber"><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Phone Number</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="hireDate"><span jhiTranslate="thcssondongApp.teacher.hireDate">Hire Date</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="salaryRate"><span jhiTranslate="thcssondongApp.teacher.salaryRate">Salary Rate</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="title"><span jhiTranslate="thcssondongApp.teacher.title">Title</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="trainTitle"><span jhiTranslate="thcssondongApp.teacher.trainTitle">Train Title</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.teacher.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="schoolId"><span jhiTranslate="thcssondongApp.teacher.school">School</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Số điện thoại</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hireDate"><span jhiTranslate="thcssondongApp.teacher.hireDate">Ngày tuyển dụng</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="salaryRate"><span jhiTranslate="thcssondongApp.teacher.salaryRate">Hệ số lương</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="thcssondongApp.teacher.title">Chức vụ</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="trainTitle"><span jhiTranslate="thcssondongApp.teacher.trainTitle">Hình thức Đào tạo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.teacher.isActive">Trạng thái</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="schoolId"><span jhiTranslate="thcssondongApp.teacher.school">Trường học</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userId"><span jhiTranslate="thcssondongApp.teacher.user">User</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -51,7 +51,7 @@
                                 [routerLink]="['../teacher-my-suffix', teacher.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/edit'} }]"
@@ -59,7 +59,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'teacher-my-suffix/'+ teacher.id + '/delete'} }]"
@@ -67,7 +67,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
                         </button>
                     </div>
                 </td>

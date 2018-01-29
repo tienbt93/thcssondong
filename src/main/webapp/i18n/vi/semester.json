@@ -2,25 +2,25 @@
     "thcssondongApp": {
         "semester" : {
             "home": {
-                "title": "Semesters",
-                "createLabel": "Thêm mới một Semester",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Semester"
+                "title": "Danh sách Kỳ học",
+                "createLabel": "Thêm mới một Kỳ học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Kỳ học"
             },
-            "created": "Một Semester mới được tạo với định danh {{ param }}",
-            "updated": "Một Semester cập nhật với định danh {{ param }}",
-            "deleted": "Một Semester đã xóa với định danh {{ param }}",
+            "created": "Một Kỳ học mới được tạo với định danh {{ param }}",
+            "updated": "Một Kỳ học cập nhật với định danh {{ param }}",
+            "deleted": "Một Kỳ học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Semester {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Kỳ học {{ id }}?"
             },
             "detail": {
-                "title": "Semester"
+                "title": "Học kỳ"
             },
-            "semesterName": "Semester Name",
-            "startDate": "Start Date",
-            "endDate": "End Date",
-            "totalWeek": "Total Week",
-            "isActive": "Is Active",
-            "week": "Week"
+            "semesterName": "Tên Kỳ học",
+            "startDate": "Ngày bắt đầu",
+            "endDate": "Ngày kết thúc",
+            "totalWeek": "Tổng số tuần",
+            "isActive": "Trạng thái",
+            "week": "Tuần học"
         }
     }
 }

@@ -4,15 +4,15 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Phone Number</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.phoneNumber">Số điện thoại</span></dt>
         <dd>
             <span>{{teacher.phoneNumber}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.teacher.hireDate">Hire Date</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.hireDate">Ngày tuyển dụng</span></dt>
         <dd>
             <span>{{teacher.hireDate | date:'mediumDate'}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.teacher.salaryRate">Salary Rate</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.salaryRate">Hệ số lương</span></dt>
         <dd>
             <span>{{teacher.salaryRate}}</span>
         </dd>
@@ -20,15 +20,15 @@
         <dd>
             <span>{{teacher.title}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.teacher.trainTitle">Train Title</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.trainTitle">Hình thức Đào tạo</span></dt>
         <dd>
             <span jhiTranslate="{{'thcssondongApp.TrainTitle.' + teacher.trainTitle}}">{{teacher.trainTitle}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.teacher.isActive">Is Active</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.isActive">Trạng thái</span></dt>
         <dd>
             <span jhiTranslate="{{'thcssondongApp.Active.' + teacher.isActive}}">{{teacher.isActive}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.teacher.school">School</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.teacher.school">Trường học</span></dt>
         <dd>
             <div *ngIf="teacher.schoolId">
                 <a [routerLink]="['/school-my-suffix', teacher.schoolId]">{{teacher.schoolId}}</a>
@@ -43,7 +43,7 @@
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Quay lại</span>
     </button>
 
     <button type="button"
@@ -51,6 +51,6 @@
             replaceUrl="true"
             queryParamsHandling="merge"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Xem</span>
     </button>
 </div>

@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span jhiTranslate="thcssondongApp.subject.home.title">Subjects</span>
+        <span jhiTranslate="thcssondongApp.subject.home.title">Danh sách Môn học</span>
         <button class="btn btn-primary float-right jh-create-entity create-subject-my-suffix" [routerLink]="['/', { outlets: { popup: ['subject-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.subject.home.createLabel">
-            Create new Subject
+            Thêm thông tin Môn học
             </span>
         </button>
     </h2>
@@ -16,10 +16,10 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="subjectName"><span jhiTranslate="thcssondongApp.subject.subjectName">Subject Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="totalHours"><span jhiTranslate="thcssondongApp.subject.totalHours">Total Hours</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.subject.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="subjectName"><span jhiTranslate="thcssondongApp.subject.subjectName">Tên Môn học</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totalHours"><span jhiTranslate="thcssondongApp.subject.totalHours">Tổng số Tiết học</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.subject.isActive">Trạng thái</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -35,7 +35,7 @@
                                 [routerLink]="['../subject-my-suffix', subject.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'subject-my-suffix/'+ subject.id + '/edit'} }]"
@@ -43,7 +43,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'subject-my-suffix/'+ subject.id + '/delete'} }]"
@@ -51,7 +51,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
                         </button>
                     </div>
                 </td>

@@ -1,18 +1,18 @@
 
 <div *ngIf="week">
-    <h2><span jhiTranslate="thcssondongApp.week.detail.title">Week</span> {{week.id}}</h2>
+    <h2><span jhiTranslate="thcssondongApp.week.detail.title">Tuần học</span> {{week.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="thcssondongApp.week.weekName">Week Name</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.week.weekName">Tên Tuần học</span></dt>
         <dd>
             <span>{{week.weekName}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.week.isActive">Is Active</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.week.isActive">Trạng thái</span></dt>
         <dd>
             <span jhiTranslate="{{'thcssondongApp.Active.' + week.isActive}}">{{week.isActive}}</span>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.week.semester">Semester</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.week.semester">Kỳ học</span></dt>
         <dd>
             <div *ngIf="week.semesterId">
                 <a [routerLink]="['/semester-my-suffix', week.semesterId]">{{week.semesterId}}</a>
@@ -23,7 +23,7 @@
     <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Quay lại</span>
     </button>
 
     <button type="button"
@@ -31,6 +31,6 @@
             replaceUrl="true"
             queryParamsHandling="merge"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Xem</span>
     </button>
 </div>

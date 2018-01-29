@@ -2,14 +2,14 @@
 
     <div class="modal-header">
         <h4 class="modal-title" id="myUserLabel" jhiTranslate="userManagement.home.createOrEditLabel">
-            Create or edit a User</h4>
+            Thêm hoặc sửa một User</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
             (click)="clear()">&times;</button>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" [hidden]="!user.id">
-            <label jhiTranslate="global.field.id">ID</label>
+            <label jhiTranslate="global.field.id">Mã</label>
             <input type="text" class="form-control" name="id"
                    [(ngModel)]="user.id" readonly>
         </div>
@@ -22,7 +22,7 @@
             <div *ngIf="loginInput.dirty && loginInput.invalid">
                 <small class="form-text text-danger"
                    *ngIf="loginInput.errors.required" jhiTranslate="entity.validation.required">
-                    This field is required.
+                    Thông tin bắt buộc.
                 </small>
 
                 <small class="form-text text-danger"
@@ -71,7 +71,7 @@
             <div *ngIf="emailInput.dirty && emailInput.invalid">
                 <small class="form-text text-danger"
                    *ngIf="emailInput.errors.required" jhiTranslate="entity.validation.required">
-                    This field is required.
+                    Thông tin bắt buộc.
                 </small>
 
                 <small class="form-text text-danger"
@@ -115,10 +115,10 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
             <span class="fa fa-ban"></span>&nbsp;<span
-            jhiTranslate="entity.action.cancel">Cancel</span>
+            jhiTranslate="entity.action.cancel">Hủy</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-floppy-o"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            <span class="fa fa-floppy-o"></span>&nbsp;<span jhiTranslate="entity.action.save">Lưu lại</span>
         </button>
     </div>
 </form>

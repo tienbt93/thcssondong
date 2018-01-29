@@ -2,7 +2,7 @@
     "thcssondongApp": {
         "teacher" : {
             "home": {
-                "title": "Teachers",
+                "title": "Danh sách giáo viên",
                 "createLabel": "Thêm mới một Teacher",
                 "createOrEditLabel": "Thêm mới hoặc cập nhật Teacher"
             },
@@ -13,17 +13,17 @@
                 "question": "Bạn có chắc là muốn xóa Teacher {{ id }}?"
             },
             "detail": {
-                "title": "Teacher"
+                "title": "Giáo viên"
             },
-            "phoneNumber": "Phone Number",
-            "hireDate": "Hire Date",
-            "salaryRate": "Salary Rate",
-            "title": "Title",
-            "trainTitle": "Train Title",
-            "isActive": "Is Active",
-            "school": "School",
-            "user": "User",
-            "lesson": "Lesson"
+            "phoneNumber": "Số điện thoại",
+            "hireDate": "Ngày tuyển",
+            "salaryRate": "Hệ số lương",
+            "title": "Chức vụ",
+            "trainTitle": "Hình thức Đào tạo",
+            "isActive": "Trạng thái",
+            "school": "Trường học",
+            "user": "Tài khoản Người dùng",
+            "lesson": "Tiết học"
         }
     }
 }

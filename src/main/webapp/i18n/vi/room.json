@@ -2,7 +2,7 @@
     "thcssondongApp": {
         "room" : {
             "home": {
-                "title": "Rooms",
+                "title": "Quản lý Phòng học",
                 "createLabel": "Thêm mới một Room",
                 "createOrEditLabel": "Thêm mới hoặc cập nhật Room"
             },
@@ -13,13 +13,13 @@
                 "question": "Bạn có chắc là muốn xóa Room {{ id }}?"
             },
             "detail": {
-                "title": "Room"
+                "title": "Phòng học"
             },
-            "roomName": "Room Name",
-            "description": "Description",
-            "isActive": "Is Active",
-            "school": "School",
-            "lesson": "Lesson"
+            "roomName": "Tên Phòng học",
+            "description": "Mô tả",
+            "isActive": "Trạng thái",
+            "school": "Trường học",
+            "lesson": "Tiết học"
         }
     }
 }
