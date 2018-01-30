@@ -1,7 +1,7 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myLessonLabel" jhiTranslate="thcssondongApp.lesson.home.createOrEditLabel">Create or edit a Tiết học</h4>
+        <h4 class="modal-title" id="myLessonLabel" jhiTranslate="thcssondongApp.lesson.home.createOrEditLabel">Thêm hoặc sửa một Tiết học</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
@@ -13,20 +13,19 @@
                    [(ngModel)]="lesson.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.dow" for="field_dow">Thứ trong tuần</label>
-            <select class="form-control" name="dow" [(ngModel)]="lesson.dow" id="field_dow"  required>
-                <option value="SUN">{{'thcssondongApp.DateOfWeek.SUN' | translate}}</option>
-                <option value="MON">{{'thcssondongApp.DateOfWeek.MON' | translate}}</option>
-                <option value="TUE">{{'thcssondongApp.DateOfWeek.TUE' | translate}}</option>
-                <option value="WED">{{'thcssondongApp.DateOfWeek.WED' | translate}}</option>
-                <option value="THU">{{'thcssondongApp.DateOfWeek.THU' | translate}}</option>
-                <option value="FRI">{{'thcssondongApp.DateOfWeek.FRI' | translate}}</option>
-                <option value="SAT">{{'thcssondongApp.DateOfWeek.SAT' | translate}}</option>
-            </select>
-            <div [hidden]="!(editForm.controls.dow?.dirty && editForm.controls.dow?.invalid)">
+            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.date" for="field_date">Thứ</label>
+            <div class="d-flex">
+                <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="lesson.date"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.dow?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   [hidden]="!editForm.controls.date?.errors?.required" jhiTranslate="entity.validation.required">
+                   Thông tin bắt buộc.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
                 </small>
             </div>
         </div>
@@ -45,7 +44,7 @@
             <div [hidden]="!(editForm.controls.ordinalNumber?.dirty && editForm.controls.ordinalNumber?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.ordinalNumber?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
@@ -63,7 +62,7 @@
             <div [hidden]="!(editForm.controls.isActive?.dirty && editForm.controls.isActive?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.isActive?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
+                   Thông tin bắt buộc.
                 </small>
             </div>
         </div>
@@ -72,35 +71,35 @@
             <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.teacher" for="field_teacher">Giáo viên</label>
             <select class="form-control" id="field_teacher" name="teacher" [(ngModel)]="lesson.teacherId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="teacherOption.id" *ngFor="let teacherOption of teachers; trackBy: trackTeacherById">{{teacherOption.fullname}}</option>
+                <option [ngValue]="teacherOption.id" *ngFor="let teacherOption of teachers; trackBy: trackTeacherById">{{teacherOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.week" for="field_week">Tuần học</label>
             <select class="form-control" id="field_week" name="week" [(ngModel)]="lesson.weekId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="weekOption.id" *ngFor="let weekOption of weeks; trackBy: trackWeekById">{{weekOption.weekName}}</option>
+                <option [ngValue]="weekOption.id" *ngFor="let weekOption of weeks; trackBy: trackWeekById">{{weekOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.subject" for="field_subject">Môn học</label>
             <select class="form-control" id="field_subject" name="subject" [(ngModel)]="lesson.subjectId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.subjectName}}</option>
+                <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.room" for="field_room">Phòng học</label>
             <select class="form-control" id="field_room" name="room" [(ngModel)]="lesson.roomId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="roomOption.id" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.roomName}}</option>
+                <option [ngValue]="roomOption.id" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.classSchool" for="field_classSchool">Lớp</label>
+            <label class="form-control-label" jhiTranslate="thcssondongApp.lesson.classSchool" for="field_classSchool">Lớp học</label>
             <select class="form-control" id="field_classSchool" name="classSchool" [(ngModel)]="lesson.classSchoolId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="classSchoolOption.id" *ngFor="let classSchoolOption of classschools; trackBy: trackClassSchoolById">{{classSchoolOption.className}}</option>
+                <option [ngValue]="classSchoolOption.id" *ngFor="let classSchoolOption of classschools; trackBy: trackClassSchoolById">{{classSchoolOption.id}}</option>
             </select>
         </div>
     </div>

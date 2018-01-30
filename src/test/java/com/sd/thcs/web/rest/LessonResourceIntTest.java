@@ -23,8 +23,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static com.sd.thcs.web.rest.TestUtil.createFormattingConversionService;
@@ -33,6 +31,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.sd.thcs.domain.enumeration.DateOfWeek;
 import com.sd.thcs.domain.enumeration.OrdinalNumber;
 import com.sd.thcs.domain.enumeration.Active;
 /**
@@ -44,8 +43,8 @@ import com.sd.thcs.domain.enumeration.Active;
 @SpringBootTest(classes = ThcssondongApp.class)
 public class LessonResourceIntTest {
 
-    private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final DateOfWeek DEFAULT_DOW = DateOfWeek.SUN;
+    private static final DateOfWeek UPDATED_DOW = DateOfWeek.MON;
 
     private static final OrdinalNumber DEFAULT_ORDINAL_NUMBER = OrdinalNumber.L1;
     private static final OrdinalNumber UPDATED_ORDINAL_NUMBER = OrdinalNumber.L2;
@@ -97,7 +96,7 @@ public class LessonResourceIntTest {
      */
     public static Lesson createEntity(EntityManager em) {
         Lesson lesson = new Lesson()
-            .date(DEFAULT_DATE)
+            .dow(DEFAULT_DOW)
             .ordinalNumber(DEFAULT_ORDINAL_NUMBER)
             .lessonTitle(DEFAULT_LESSON_TITLE)
             .isActive(DEFAULT_IS_ACTIVE);
@@ -125,7 +124,7 @@ public class LessonResourceIntTest {
         List<Lesson> lessonList = lessonRepository.findAll();
         assertThat(lessonList).hasSize(databaseSizeBeforeCreate + 1);
         Lesson testLesson = lessonList.get(lessonList.size() - 1);
-        assertThat(testLesson.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testLesson.getDow()).isEqualTo(DEFAULT_DOW);
         assertThat(testLesson.getOrdinalNumber()).isEqualTo(DEFAULT_ORDINAL_NUMBER);
         assertThat(testLesson.getLessonTitle()).isEqualTo(DEFAULT_LESSON_TITLE);
         assertThat(testLesson.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
@@ -153,10 +152,10 @@ public class LessonResourceIntTest {
 
     @Test
     @Transactional
-    public void checkDateIsRequired() throws Exception {
+    public void checkDowIsRequired() throws Exception {
         int databaseSizeBeforeTest = lessonRepository.findAll().size();
         // set the field null
-        lesson.setDate(null);
+        lesson.setDow(null);
 
         // Create the Lesson, which fails.
         LessonDTO lessonDTO = lessonMapper.toDto(lesson);
@@ -219,7 +218,7 @@ public class LessonResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(lesson.getId().intValue())))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].dow").value(hasItem(DEFAULT_DOW.toString())))
             .andExpect(jsonPath("$.[*].ordinalNumber").value(hasItem(DEFAULT_ORDINAL_NUMBER.toString())))
             .andExpect(jsonPath("$.[*].lessonTitle").value(hasItem(DEFAULT_LESSON_TITLE.toString())))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.toString())));
@@ -236,7 +235,7 @@ public class LessonResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(lesson.getId().intValue()))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.dow").value(DEFAULT_DOW.toString()))
             .andExpect(jsonPath("$.ordinalNumber").value(DEFAULT_ORDINAL_NUMBER.toString()))
             .andExpect(jsonPath("$.lessonTitle").value(DEFAULT_LESSON_TITLE.toString()))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.toString()));
@@ -262,7 +261,7 @@ public class LessonResourceIntTest {
         // Disconnect from session so that the updates on updatedLesson are not directly saved in db
         em.detach(updatedLesson);
         updatedLesson
-            .date(UPDATED_DATE)
+            .dow(UPDATED_DOW)
             .ordinalNumber(UPDATED_ORDINAL_NUMBER)
             .lessonTitle(UPDATED_LESSON_TITLE)
             .isActive(UPDATED_IS_ACTIVE);
@@ -277,7 +276,7 @@ public class LessonResourceIntTest {
         List<Lesson> lessonList = lessonRepository.findAll();
         assertThat(lessonList).hasSize(databaseSizeBeforeUpdate);
         Lesson testLesson = lessonList.get(lessonList.size() - 1);
-        assertThat(testLesson.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testLesson.getDow()).isEqualTo(UPDATED_DOW);
         assertThat(testLesson.getOrdinalNumber()).isEqualTo(UPDATED_ORDINAL_NUMBER);
         assertThat(testLesson.getLessonTitle()).isEqualTo(UPDATED_LESSON_TITLE);
         assertThat(testLesson.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);

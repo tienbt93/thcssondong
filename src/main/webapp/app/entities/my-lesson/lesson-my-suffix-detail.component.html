@@ -4,9 +4,9 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="thcssondongApp.lesson.dow">Thứ trong tuần</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.lesson.date">Thứ</span></dt>
         <dd>
-            <span jhiTranslate="{{'thcssondongApp.DateOfWeek.' + lesson.dow}}">{{lesson.dow}}</span>
+            <span>{{lesson.date | date:'medium'}}</span>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.lesson.ordinalNumber">Tiết thứ</span></dt>
         <dd>
@@ -44,7 +44,7 @@
                 <a [routerLink]="['/room-my-suffix', lesson.roomId]">{{lesson.roomId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp</span></dt>
+        <dt><span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp học</span></dt>
         <dd>
             <div *ngIf="lesson.classSchoolId">
                 <a [routerLink]="['/class-school-my-suffix', lesson.classSchoolId]">{{lesson.classSchoolId}}</a>
@@ -63,6 +63,6 @@
             replaceUrl="true"
             queryParamsHandling="merge"
             class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Sửa</span>
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Xem</span>
     </button>
 </div>

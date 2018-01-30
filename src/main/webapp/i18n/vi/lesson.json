@@ -2,28 +2,28 @@
     "thcssondongApp": {
         "lesson" : {
             "home": {
-                "title": "Lessons",
-                "createLabel": "Thêm mới một Lesson",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Lesson"
+                "title": "Danh sách Tiết học",
+                "createLabel": "Thêm mới một Tiết học",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Tiết học"
             },
-            "created": "Một Lesson mới được tạo với định danh {{ param }}",
-            "updated": "Một Lesson cập nhật với định danh {{ param }}",
-            "deleted": "Một Lesson đã xóa với định danh {{ param }}",
+            "created": "Một Tiết học mới được tạo với định danh {{ param }}",
+            "updated": "Một Tiết học cập nhật với định danh {{ param }}",
+            "deleted": "Một Tiết học đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Lesson {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Tiết học {{ id }}?"
             },
             "detail": {
                 "title": "Tiết học"
             },
-            "date": "Date",
-            "ordinalNumber": "Ordinal Number",
-            "lessonTitle": "Lesson Title",
+            "dow": "Thứ trong tuần",
+            "ordinalNumber": "Tiết thứ",
+            "lessonTitle": "Tên bài dạy",
             "isActive": "Trạng thái",
             "teacher": "Giáo viên",
             "week": "Tuần học",
             "subject": "Môn học",
             "room": "Phòng học",
-            "classSchool": "Lớp học"
+            "classSchool": "Lớp"
         }
     }
 }

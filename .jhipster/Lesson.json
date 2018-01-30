@@ -34,8 +34,8 @@
     ],
     "fields": [
         {
-            "fieldName": "date",
-            "fieldType": "Date",
+            "fieldName": "dow",
+            "fieldType": "DateOfWeek",
             "fieldValues": "SUN,MON,TUE,WED,THU,FRI,SAT",
             "fieldValidateRules": [
                 "required"

@@ -4,7 +4,7 @@
         <button class="btn btn-primary float-right jh-create-entity create-lesson-my-suffix" [routerLink]="['/', { outlets: { popup: ['lesson-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.lesson.home.createLabel">
-            Create new Tiết học
+            Thêm thông tin Tiết học
             </span>
         </button>
     </h2>
@@ -16,8 +16,8 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dow"><span jhiTranslate="thcssondongApp.lesson.dow">Thứ trong tuần</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="date"><span jhiTranslate="thcssondongApp.lesson.date">Thứ</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="ordinalNumber"><span jhiTranslate="thcssondongApp.lesson.ordinalNumber">Tiết thứ</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="lessonTitle"><span jhiTranslate="thcssondongApp.lesson.lessonTitle">Tên bài dạy</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.lesson.isActive">Trạng thái</span> <span class="fa fa-sort"></span></th>
@@ -25,14 +25,14 @@
             <th jhiSortBy="weekId"><span jhiTranslate="thcssondongApp.lesson.week">Tuần học</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="subjectId"><span jhiTranslate="thcssondongApp.lesson.subject">Môn học</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="roomId"><span jhiTranslate="thcssondongApp.lesson.room">Phòng học</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="classSchoolId"><span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="classSchoolId"><span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp học</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let lesson of lessons ;trackBy: trackId">
                 <td><a [routerLink]="['../lesson-my-suffix', lesson.id ]">{{lesson.id}}</a></td>
-                <td jhiTranslate="{{'thcssondongApp.DateOfWeek.' + lesson.dow}}">{{lesson.dow}}</td>
+                <td>{{lesson.date | date:'medium'}}</td>
                 <td jhiTranslate="{{'thcssondongApp.OrdinalNumber.' + lesson.ordinalNumber}}">{{lesson.ordinalNumber}}</td>
                 <td>{{lesson.lessonTitle}}</td>
                 <td jhiTranslate="{{'thcssondongApp.Active.' + lesson.isActive}}">{{lesson.isActive}}</td>
@@ -75,7 +75,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Xem</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'lesson-my-suffix/'+ lesson.id + '/delete'} }]"

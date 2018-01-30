@@ -15,7 +15,7 @@
             "detail": {
                 "title": "Lesson"
             },
-            "date": "Date",
+            "dow": "Dow",
             "ordinalNumber": "Ordinal Number",
             "lessonTitle": "Lesson Title",
             "isActive": "Is Active",

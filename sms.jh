@@ -32,7 +32,7 @@ entity Subject{
     
 }
 entity Lesson{
-    date Date required,
+    dow DateOfWeek required,
     ordinalNumber OrdinalNumber required,
     lessonTitle String ,
     isActive Active required
@@ -47,7 +47,7 @@ entity ClassSchool{
     description String,
     isActive Active required
 }
-enum Date{
+enum DateOfWeek{
 	SUN,MON,TUE,WED,THU,FRI,SAT
 }
 enum TrainTitle{

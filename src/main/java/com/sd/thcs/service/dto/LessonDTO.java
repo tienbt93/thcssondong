@@ -1,14 +1,14 @@
 package com.sd.thcs.service.dto;
 
 
-import java.time.Instant;
-import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
-import com.sd.thcs.domain.enumeration.OrdinalNumber;
+
+import javax.validation.constraints.NotNull;
+
 import com.sd.thcs.domain.enumeration.Active;
+import com.sd.thcs.domain.enumeration.DateOfWeek;
+import com.sd.thcs.domain.enumeration.OrdinalNumber;
 
 /**
  * A DTO for the Lesson entity.
@@ -18,7 +18,7 @@ public class LessonDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Instant date;
+    private DateOfWeek dow;
 
     @NotNull
     private OrdinalNumber ordinalNumber;
@@ -37,8 +37,58 @@ public class LessonDTO implements Serializable {
     private Long roomId;
 
     private Long classSchoolId;
+    
+    private String teacherName;
 
-    public Long getId() {
+    private String weekName;
+
+    private String subjectName;
+
+    private String roomName;
+
+    private String classSchoolName;
+   
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getWeekName() {
+		return weekName;
+	}
+
+	public void setWeekName(String weekName) {
+		this.weekName = weekName;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+	public String getClassSchoolName() {
+		return classSchoolName;
+	}
+
+	public void setClassSchoolName(String classSchoolName) {
+		this.classSchoolName = classSchoolName;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -46,12 +96,12 @@ public class LessonDTO implements Serializable {
         this.id = id;
     }
 
-    public Instant getDate() {
-        return date;
+    public DateOfWeek getDow() {
+        return dow;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setDow(DateOfWeek dow) {
+        this.dow = dow;
     }
 
     public OrdinalNumber getOrdinalNumber() {
@@ -143,7 +193,7 @@ public class LessonDTO implements Serializable {
     public String toString() {
         return "LessonDTO{" +
             "id=" + getId() +
-            ", date='" + getDate() + "'" +
+            ", dow='" + getDow() + "'" +
             ", ordinalNumber='" + getOrdinalNumber() + "'" +
             ", lessonTitle='" + getLessonTitle() + "'" +
             ", isActive='" + getIsActive() + "'" +
