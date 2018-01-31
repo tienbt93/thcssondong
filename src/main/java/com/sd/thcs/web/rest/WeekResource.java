@@ -106,6 +106,14 @@ public class WeekResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/weeks");
         return new ResponseEntity<>(weekMapper.toDto(page.getContent()), headers, HttpStatus.OK);
     }
+    @GetMapping("/weeks/weeksBySemesterId/{id}")
+    @Timed
+    public ResponseEntity<List<WeekDTO>> getAllWeeksBySemesterId(@PathVariable Long id) {
+        log.debug("REST request to get a page of Weeks");
+        List<Week> list = weekRepository.findBySemesterId(id);
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/weeks");
+        return new ResponseEntity<>(weekMapper.toDto(list), HttpStatus.OK);
+    }
 
     /**
      * GET  /weeks/:id : get the "id" week.

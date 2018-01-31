@@ -6,15 +6,16 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { LessonMySuffix } from './lesson-my-suffix.model';
 import { LessonMySuffixService } from './lesson-my-suffix.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import { SemesterMySuffix, SemesterMySuffixService } from '../semester-my-suffix';
+import { WeekMySuffix, WeekMySuffixService } from '../week-my-suffix';
 
 @Component({
-    // selector: 'jhi-lesson-my-teacher-suffix',
-    selector: 'lesson-my-teacher-suffix.component',
+    selector: 'jhi-lesson-my-teacher-suffix',
+    // selector: 'lesson-my-teacher-suffix.component',
     templateUrl: './lesson-my-teacher-suffix.component.html'
 })
 export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
-
-currentAccount: any;
+    currentAccount: any;
     lessons: LessonMySuffix[];
     error: any;
     success: any;
@@ -28,7 +29,8 @@ currentAccount: any;
     predicate: any;
     previousPage: any;
     reverse: any;
-
+    semesters: SemesterMySuffix[];
+    weeks: WeekMySuffix[];
     constructor(
         private lessonService: LessonMySuffixService,
         private parseLinks: JhiParseLinks,
@@ -36,7 +38,9 @@ currentAccount: any;
         private principal: Principal,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private weekService: WeekMySuffixService,
+        private semesterService: SemesterMySuffixService
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
@@ -51,10 +55,11 @@ currentAccount: any;
         this.lessonService.query({
             page: this.page - 1,
             size: this.itemsPerPage,
-            sort: this.sort()}).subscribe(
+            sort: this.sort()
+        }).subscribe(
             (res: ResponseWrapper) => this.onSuccess(res.json, res.headers),
             (res: ResponseWrapper) => this.onError(res.json)
-        );
+            );
     }
     loadPage(page: number) {
         if (page !== this.previousPage) {
@@ -63,12 +68,13 @@ currentAccount: any;
         }
     }
     transition() {
-        this.router.navigate(['/lesson-my-teacher-suffix'], {queryParams:
-            {
-                page: this.page,
-                size: this.itemsPerPage,
-                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-            }
+        this.router.navigate(['/lesson-my-teacher-suffix'], {
+            queryParams:
+                {
+                    page: this.page,
+                    size: this.itemsPerPage,
+                    sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+                }
         });
         this.loadAll();
     }
@@ -82,13 +88,26 @@ currentAccount: any;
         this.loadAll();
     }
     ngOnInit() {
-        this.loadAll();
+        this.semesterService.queryCurrent({
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sortId()
+        }).subscribe((res: ResponseWrapper) => { this.semesters = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        // this.loadAll();
         this.principal.identity().then((account) => {
             this.currentAccount = account;
         });
         this.registerChangeInLessons();
     }
-
+    onChangeSemester(newValue) {
+        console.log(newValue.value);
+        this.weekService.queryBySemesterId(newValue.value)
+            .subscribe((res: ResponseWrapper) => { this.weeks = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+    }
+    onChangeWeek(newValue) {
+        console.log(newValue);
+        this.loadAll();
+    }
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
     }
@@ -105,6 +124,11 @@ currentAccount: any;
         if (this.predicate !== 'id') {
             result.push('id');
         }
+        return result;
+    }
+
+    sortId() {
+        const result = ['id' + ',' + 'desc'];
         return result;
     }
 

@@ -18,6 +18,12 @@
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
 
+"@angular/cdk@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.1.1.tgz#a278b44ec02145a4691aa466dde06a1ae8c0fe88"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.6.0.tgz#eba521f6a8e4c2db628300baddbc4da13ca96998"
@@ -118,6 +124,12 @@
 "@angular/http@5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-5.1.0.tgz#59d47c1878896f25e64b9abc700017cff7836710"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/material@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.1.1.tgz#fafbd6bd98f2521ac5e3e2b2f720214386e3f31d"
   dependencies:
     tslib "^1.7.1"
 
@@ -1341,11 +1353,11 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.12.2, commander@2.12.x, commander@^2.9.0, commander@~2.12.1:
+commander@2.12.2, commander@2.12.x, commander@^2.2.0, commander@^2.9.0, commander@~2.12.1:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
 
-commander@^2.2.0, commander@^2.5.0, commander@~2.13.0:
+commander@^2.5.0, commander@~2.13.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
@@ -3588,14 +3600,14 @@ http-proxy-middleware@~0.17.4:
     lodash "^4.17.2"
     micromatch "^2.3.11"
 
-http-proxy@1.15.2:
+http-proxy@1.15.2, http-proxy@^1.13.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.15.2.tgz#642fdcaffe52d3448d2bda3b0079e9409064da31"
   dependencies:
     eventemitter3 "1.x.x"
     requires-port "1.x.x"
 
-http-proxy@^1.13.0, http-proxy@^1.16.2:
+http-proxy@^1.16.2:
   version "1.16.2"
   resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.16.2.tgz#06dff292952bf64dbe8471fa9df73066d4f37742"
   dependencies:

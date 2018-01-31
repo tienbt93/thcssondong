@@ -37,7 +37,7 @@ export const lessonRoute: Routes = [
             pageTitle: 'thcssondongApp.lesson.home.title'
         },
         canActivate: [UserRouteAccessService]
-    },{
+    }, {
         path: 'lesson-my-teacher-suffix',
         component: LessonMyTeacherSuffixComponent,
         resolve: {
