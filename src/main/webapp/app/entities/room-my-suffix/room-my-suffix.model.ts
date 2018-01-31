@@ -12,6 +12,7 @@ export class RoomMySuffix implements BaseEntity {
         public description?: string,
         public isActive?: Active,
         public schoolId?: number,
+        public schoolName?: string,
         public lessons?: BaseEntity[],
     ) {
     }

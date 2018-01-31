@@ -1,5 +1,15 @@
 import { BaseEntity } from './../../shared';
 
+export const enum DateOfWeek {
+    'SUN',
+    'MON',
+    'TUE',
+    'WED',
+    'THU',
+    'FRI',
+    'SAT'
+}
+
 export const enum OrdinalNumber {
     'L1',
     'L2',
@@ -19,7 +29,7 @@ export const enum Active {
 export class LessonMySuffix implements BaseEntity {
     constructor(
         public id?: number,
-        public date?: any,
+        public dow?: DateOfWeek,
         public ordinalNumber?: OrdinalNumber,
         public lessonTitle?: string,
         public isActive?: Active,
@@ -28,6 +38,11 @@ export class LessonMySuffix implements BaseEntity {
         public subjectId?: number,
         public roomId?: number,
         public classSchoolId?: number,
+        public teacherName?: string,
+        public weekName?: string,
+        public subjectName?: string,
+        public roomName?: string,
+        public className?: string
     ) {
     }
 }

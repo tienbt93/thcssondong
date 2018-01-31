@@ -1,14 +1,14 @@
 package com.sd.thcs.service.dto;
 
 
-import java.time.LocalDate;
-import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.Objects;
-import com.sd.thcs.domain.enumeration.TrainTitle;
+
+import javax.validation.constraints.NotNull;
+
 import com.sd.thcs.domain.enumeration.Active;
+import com.sd.thcs.domain.enumeration.TrainTitle;
 
 /**
  * A DTO for the Teacher entity.
@@ -38,8 +38,59 @@ public class TeacherDTO implements Serializable {
     private Long schoolId;
 
     private Long userId;
+    
+    private String schoolName;
 
-    public Long getId() {
+    private String userLogin;
+    
+    private String fullname;
+    
+	private String firstName;
+
+	private String lastName;
+
+
+    public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFullname() {
+		return lastName+" "+firstName;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public String getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public Long getId() {
         return id;
     }
 

@@ -3,8 +3,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { JhiDateUtils } from 'ng-jhipster';
-
 import { LessonMySuffix } from './lesson-my-suffix.model';
 import { ResponseWrapper, createRequestOption } from '../../shared';
 
@@ -13,7 +11,7 @@ export class LessonMySuffixService {
 
     private resourceUrl =  SERVER_API_URL + 'api/lessons';
 
-    constructor(private http: Http, private dateUtils: JhiDateUtils) { }
+    constructor(private http: Http) { }
 
     create(lesson: LessonMySuffix): Observable<LessonMySuffix> {
         const copy = this.convert(lesson);
@@ -62,8 +60,6 @@ export class LessonMySuffixService {
      */
     private convertItemFromServer(json: any): LessonMySuffix {
         const entity: LessonMySuffix = Object.assign(new LessonMySuffix(), json);
-        entity.date = this.dateUtils
-            .convertDateTimeFromServer(json.date);
         return entity;
     }
 
@@ -72,8 +68,6 @@ export class LessonMySuffixService {
      */
     private convert(lesson: LessonMySuffix): LessonMySuffix {
         const copy: LessonMySuffix = Object.assign({}, lesson);
-
-        copy.date = this.dateUtils.toDate(lesson.date);
         return copy;
     }
 }

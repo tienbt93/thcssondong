@@ -1,13 +1,21 @@
 <div>
     <h2>
-        <span jhiTranslate="thcssondongApp.lesson.home.title">Danh sách Tiết học</span>
-        <button class="btn btn-primary float-right jh-create-entity create-lesson-my-suffix" [routerLink]="['/', { outlets: { popup: ['lesson-my-suffix-new'] } }]">
+        <span jhiTranslate="thcssondongApp.lesson.home.title-teacher">Lịch giảng dạy của Giáo viên</span>
+       <!--  <button class="btn btn-primary float-right jh-create-entity create-lesson-my-suffix" [routerLink]="['/', { outlets: { popup: ['lesson-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.lesson.home.createLabel">
             Create new Tiết học
             </span>
-        </button>
+        </button> -->
     </h2>
+    <mat-form-field>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
     <jhi-alert></jhi-alert>
     <div class="row">
     </div>
@@ -16,7 +24,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="dow"><span jhiTranslate="thcssondongApp.lesson.dow">Thứ trong tuần</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="ordinalNumber"><span jhiTranslate="thcssondongApp.lesson.ordinalNumber">Tiết thứ</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="lessonTitle"><span jhiTranslate="thcssondongApp.lesson.lessonTitle">Tên bài dạy</span> <span class="fa fa-sort"></span></th>

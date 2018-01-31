@@ -13,6 +13,10 @@ public interface TeacherMapper extends EntityMapper<TeacherDTO, Teacher> {
 
     @Mapping(source = "school.id", target = "schoolId")
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "school.schoolNam", target = "schoolName")
+    @Mapping(source = "user.login", target = "userLogin")
+    @Mapping(source = "user.firstName", target = "firstName")
+    @Mapping(source = "user.lastName", target = "lastName")
     TeacherDTO toDto(Teacher teacher);
 
     @Mapping(source = "schoolId", target = "school")

@@ -1,6 +1,6 @@
 
 <div *ngIf="teacher">
-    <h2><span jhiTranslate="thcssondongApp.teacher.detail.title">Teacher</span> {{teacher.id}}</h2>
+    <h2><span jhiTranslate="thcssondongApp.teacher.detail.title">Giáo viên</span> {{teacher.fullname}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
@@ -31,12 +31,12 @@
         <dt><span jhiTranslate="thcssondongApp.teacher.school">Trường học</span></dt>
         <dd>
             <div *ngIf="teacher.schoolId">
-                <a [routerLink]="['/school-my-suffix', teacher.schoolId]">{{teacher.schoolId}}</a>
+                <a [routerLink]="['/school-my-suffix', teacher.schoolId]">{{teacher.schoolName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.teacher.user">User</span></dt>
         <dd>
-            {{teacher.userId}}
+            {{teacher.userLogin}}
         </dd>
     </dl>
 

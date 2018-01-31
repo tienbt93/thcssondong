@@ -7,8 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Objects;
+
+import com.sd.thcs.domain.enumeration.DateOfWeek;
 
 import com.sd.thcs.domain.enumeration.OrdinalNumber;
 
@@ -29,8 +30,9 @@ public class Lesson implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "jhi_date", nullable = false)
-    private Instant date;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dow", nullable = false)
+    private DateOfWeek dow;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -69,17 +71,17 @@ public class Lesson implements Serializable {
         this.id = id;
     }
 
-    public Instant getDate() {
-        return date;
+    public DateOfWeek getDow() {
+        return dow;
     }
 
-    public Lesson date(Instant date) {
-        this.date = date;
+    public Lesson dow(DateOfWeek dow) {
+        this.dow = dow;
         return this;
     }
 
-    public void setDate(Instant date) {
-        this.date = date;
+    public void setDow(DateOfWeek dow) {
+        this.dow = dow;
     }
 
     public OrdinalNumber getOrdinalNumber() {
@@ -211,7 +213,7 @@ public class Lesson implements Serializable {
     public String toString() {
         return "Lesson{" +
             "id=" + getId() +
-            ", date='" + getDate() + "'" +
+            ", dow='" + getDow() + "'" +
             ", ordinalNumber='" + getOrdinalNumber() + "'" +
             ", lessonTitle='" + getLessonTitle() + "'" +
             ", isActive='" + getIsActive() + "'" +

@@ -3,6 +3,7 @@
         "lesson" : {
             "home": {
                 "title": "Lessons",
+                "title-teacher": "Lịch giảng dạy của Giáo viên",
                 "createLabel": "Create a new Lesson",
                 "createOrEditLabel": "Create or edit a Lesson"
             },
@@ -15,7 +16,7 @@
             "detail": {
                 "title": "Lesson"
             },
-            "date": "Date",
+            "dow": "Dow",
             "ordinalNumber": "Ordinal Number",
             "lessonTitle": "Lesson Title",
             "isActive": "Is Active",

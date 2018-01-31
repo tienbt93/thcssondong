@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span jhiTranslate="thcssondongApp.room.home.title">Rooms</span>
+        <span jhiTranslate="thcssondongApp.room.home.title">Danh sách Phòng học</span>
         <button class="btn btn-primary float-right jh-create-entity create-room-my-suffix" [routerLink]="['/', { outlets: { popup: ['room-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="thcssondongApp.room.home.createLabel">
-            Thêm thông tin Room
+            Thêm thông tin Phòng học
             </span>
         </button>
     </h2>
@@ -17,7 +17,7 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">Mã</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="roomName"><span jhiTranslate="thcssondongApp.room.roomName">Room Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="roomName"><span jhiTranslate="thcssondongApp.room.roomName">Tên Phòng học</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="description"><span jhiTranslate="thcssondongApp.room.description">Mô tả</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isActive"><span jhiTranslate="thcssondongApp.room.isActive">Trạng thái</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="schoolId"><span jhiTranslate="thcssondongApp.room.school">Trường học</span> <span class="fa fa-sort"></span></th>
@@ -32,7 +32,7 @@
                 <td jhiTranslate="{{'thcssondongApp.Active.' + room.isActive}}">{{room.isActive}}</td>
                 <td>
                     <div *ngIf="room.schoolId">
-                        <a [routerLink]="['../school-my-suffix', room.schoolId  ]" >{{room.schoolId}}</a>
+                        <a [routerLink]="['../school-my-suffix', room.schoolId  ]" >{{room.schoolName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

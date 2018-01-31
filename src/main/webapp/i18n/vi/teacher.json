@@ -3,14 +3,14 @@
         "teacher" : {
             "home": {
                 "title": "Danh sách giáo viên",
-                "createLabel": "Thêm mới một Teacher",
-                "createOrEditLabel": "Thêm mới hoặc cập nhật Teacher"
+                "createLabel": "Thêm mới một Giáo viên",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Giáo viên"
             },
-            "created": "Một Teacher mới được tạo với định danh {{ param }}",
-            "updated": "Một Teacher cập nhật với định danh {{ param }}",
-            "deleted": "Một Teacher đã xóa với định danh {{ param }}",
+            "created": "Một Giáo viên mới được tạo với định danh {{ param }}",
+            "updated": "Một Giáo viên cập nhật với định danh {{ param }}",
+            "deleted": "Một Giáo viên đã xóa với định danh {{ param }}",
             "delete": {
-                "question": "Bạn có chắc là muốn xóa Teacher {{ id }}?"
+                "question": "Bạn có chắc là muốn xóa Giáo viên {{ id }}?"
             },
             "detail": {
                 "title": "Giáo viên"

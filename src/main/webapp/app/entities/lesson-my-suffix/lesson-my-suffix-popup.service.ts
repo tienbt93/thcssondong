@@ -1,7 +1,6 @@
 import { Injectable, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
 import { LessonMySuffix } from './lesson-my-suffix.model';
 import { LessonMySuffixService } from './lesson-my-suffix.service';
 
@@ -10,7 +9,6 @@ export class LessonMySuffixPopupService {
     private ngbModalRef: NgbModalRef;
 
     constructor(
-        private datePipe: DatePipe,
         private modalService: NgbModal,
         private router: Router,
         private lessonService: LessonMySuffixService
@@ -28,8 +26,6 @@ export class LessonMySuffixPopupService {
 
             if (id) {
                 this.lessonService.find(id).subscribe((lesson) => {
-                    lesson.date = this.datePipe
-                        .transform(lesson.date, 'yyyy-MM-ddTHH:mm:ss');
                     this.ngbModalRef = this.lessonModalRef(component, lesson);
                     resolve(this.ngbModalRef);
                 });
