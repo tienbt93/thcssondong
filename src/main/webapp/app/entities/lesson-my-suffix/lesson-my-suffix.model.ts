@@ -42,7 +42,7 @@ export class LessonMySuffix implements BaseEntity {
         public weekName?: string,
         public subjectName?: string,
         public roomName?: string,
-        public classSchoolName?: string
+        public className?: string
     ) {
     }
 }

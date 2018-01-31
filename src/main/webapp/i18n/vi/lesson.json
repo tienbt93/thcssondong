@@ -3,6 +3,7 @@
         "lesson" : {
             "home": {
                 "title": "Danh sách Tiết học",
+                "title-teacher": "Lịch giảng dạy của Giáo viên",
                 "createLabel": "Thêm mới một Tiết học",
                 "createOrEditLabel": "Thêm mới hoặc cập nhật Tiết học"
             },

@@ -8,10 +8,11 @@ import { LessonMySuffixService } from './lesson-my-suffix.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
 
 @Component({
-    selector: 'jhi-lesson-my-suffix',
-    templateUrl: './lesson-my-suffix.component.html'
+    // selector: 'jhi-lesson-my-teacher-suffix',
+    selector: 'lesson-my-teacher-suffix.component',
+    templateUrl: './lesson-my-teacher-suffix.component.html'
 })
-export class LessonMySuffixComponent implements OnInit, OnDestroy {
+export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
 
 currentAccount: any;
     lessons: LessonMySuffix[];
@@ -62,7 +63,7 @@ currentAccount: any;
         }
     }
     transition() {
-        this.router.navigate(['/lesson-my-suffix'], {queryParams:
+        this.router.navigate(['/lesson-my-teacher-suffix'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,

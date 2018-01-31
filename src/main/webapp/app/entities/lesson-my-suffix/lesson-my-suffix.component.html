@@ -43,22 +43,22 @@
                 </td>
                 <td>
                     <div *ngIf="lesson.weekId">
-                        <a [routerLink]="['../week-my-suffix', lesson.weekId  ]" >{{lesson.weekId}}</a>
+                        <a [routerLink]="['../week-my-suffix', lesson.weekId  ]" >{{lesson.weekName}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="lesson.subjectId">
-                        <a [routerLink]="['../subject-my-suffix', lesson.subjectId  ]" >{{lesson.subjectId}}</a>
+                        <a [routerLink]="['../subject-my-suffix', lesson.subjectId  ]" >{{lesson.subjectName}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="lesson.roomId">
-                        <a [routerLink]="['../room-my-suffix', lesson.roomId  ]" >{{lesson.roomId}}</a>
+                        <a [routerLink]="['../room-my-suffix', lesson.roomId  ]" >{{lesson.roomName}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="lesson.classSchoolId">
-                        <a [routerLink]="['../class-school-my-suffix', lesson.classSchoolId  ]" >{{lesson.classSchoolId}}</a>
+                        <a [routerLink]="['../class-school-my-suffix', lesson.classSchoolId  ]" >{{lesson.className}}</a>
                     </div>
                 </td>
                 <td class="text-right">

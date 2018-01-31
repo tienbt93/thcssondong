@@ -1,14 +1,14 @@
 package com.sd.thcs.service.dto;
 
 
-import java.time.LocalDate;
-import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.Objects;
-import com.sd.thcs.domain.enumeration.TrainTitle;
+
+import javax.validation.constraints.NotNull;
+
 import com.sd.thcs.domain.enumeration.Active;
+import com.sd.thcs.domain.enumeration.TrainTitle;
 
 /**
  * A DTO for the Teacher entity.
@@ -45,8 +45,29 @@ public class TeacherDTO implements Serializable {
     
     private String fullname;
     
-    public String getFullname() {
-		return fullname;
+	private String firstName;
+
+	private String lastName;
+
+
+    public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFullname() {
+		return lastName+" "+firstName;
 	}
 
 	public void setFullname(String fullname) {

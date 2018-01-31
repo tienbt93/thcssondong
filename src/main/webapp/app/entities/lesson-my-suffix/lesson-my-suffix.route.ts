@@ -4,6 +4,7 @@ import { JhiPaginationUtil } from 'ng-jhipster';
 
 import { UserRouteAccessService } from '../../shared';
 import { LessonMySuffixComponent } from './lesson-my-suffix.component';
+import { LessonMyTeacherSuffixComponent } from './lesson-my-teacher-suffix.component';
 import { LessonMySuffixDetailComponent } from './lesson-my-suffix-detail.component';
 import { LessonMySuffixPopupComponent } from './lesson-my-suffix-dialog.component';
 import { LessonMySuffixDeletePopupComponent } from './lesson-my-suffix-delete-dialog.component';
@@ -34,6 +35,17 @@ export const lessonRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'thcssondongApp.lesson.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },{
+        path: 'lesson-my-teacher-suffix',
+        component: LessonMyTeacherSuffixComponent,
+        resolve: {
+            'pagingParams': LessonMySuffixResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'thcssondongApp.lesson.home.title-teacher'
         },
         canActivate: [UserRouteAccessService]
     }, {

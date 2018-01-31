@@ -46,7 +46,7 @@ public class LessonDTO implements Serializable {
 
     private String roomName;
 
-    private String classSchoolName;
+    private String className;
    
 	public String getTeacherName() {
 		return teacherName;
@@ -80,12 +80,12 @@ public class LessonDTO implements Serializable {
 		this.roomName = roomName;
 	}
 
-	public String getClassSchoolName() {
-		return classSchoolName;
+	public String getClassName() {
+		return className;
 	}
 
-	public void setClassSchoolName(String classSchoolName) {
-		this.classSchoolName = classSchoolName;
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
 	public Long getId() {

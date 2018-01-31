@@ -5,4 +5,5 @@ export * from './lesson-my-suffix-dialog.component';
 export * from './lesson-my-suffix-delete-dialog.component';
 export * from './lesson-my-suffix-detail.component';
 export * from './lesson-my-suffix.component';
+export * from './lesson-my-teacher-suffix.component';
 export * from './lesson-my-suffix.route';

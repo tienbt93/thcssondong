@@ -6,6 +6,7 @@ import {
     LessonMySuffixService,
     LessonMySuffixPopupService,
     LessonMySuffixComponent,
+    LessonMyTeacherSuffixComponent,
     LessonMySuffixDetailComponent,
     LessonMySuffixDialogComponent,
     LessonMySuffixPopupComponent,
@@ -28,6 +29,7 @@ const ENTITY_STATES = [
     ],
     declarations: [
         LessonMySuffixComponent,
+        LessonMyTeacherSuffixComponent,
         LessonMySuffixDetailComponent,
         LessonMySuffixDialogComponent,
         LessonMySuffixDeleteDialogComponent,
@@ -36,6 +38,7 @@ const ENTITY_STATES = [
     ],
     entryComponents: [
         LessonMySuffixComponent,
+        LessonMyTeacherSuffixComponent,
         LessonMySuffixDialogComponent,
         LessonMySuffixPopupComponent,
         LessonMySuffixDeleteDialogComponent,
