@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface WeekMapper extends EntityMapper<WeekDTO, Week> {
 
     @Mapping(source = "semester.id", target = "semesterId")
+    @Mapping(source = "semester.semesterName", target = "semesterName")
     WeekDTO toDto(Week week);
 
     @Mapping(source = "semesterId", target = "semester")

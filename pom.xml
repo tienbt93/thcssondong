@@ -328,7 +328,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <!-- <annotationProcessorPaths>
+                    <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
@@ -341,7 +341,7 @@
                             <version>${hibernate.version}</version>
                         </path>
 
-                    </annotationProcessorPaths> -->
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

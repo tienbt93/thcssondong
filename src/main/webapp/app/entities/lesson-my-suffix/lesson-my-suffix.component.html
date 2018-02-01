@@ -38,7 +38,7 @@
                 <td jhiTranslate="{{'thcssondongApp.Active.' + lesson.isActive}}">{{lesson.isActive}}</td>
                 <td>
                     <div *ngIf="lesson.teacherId">
-                        <a [routerLink]="['../teacher-my-suffix', lesson.teacherId  ]" >{{lesson.teacherId}}</a>
+                        <a [routerLink]="['../teacher-my-suffix', lesson.teacherId  ]" >{{lesson.teacherName}}</a>
                     </div>
                 </td>
                 <td>

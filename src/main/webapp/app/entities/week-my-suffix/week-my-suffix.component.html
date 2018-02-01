@@ -30,7 +30,7 @@
                 <td jhiTranslate="{{'thcssondongApp.Active.' + week.isActive}}">{{week.isActive}}</td>
                 <td>
                     <div *ngIf="week.semesterId">
-                        <a [routerLink]="['../semester-my-suffix', week.semesterId  ]" >{{week.semesterId}}</a>
+                        <a [routerLink]="['../semester-my-suffix', week.semesterId  ]" >{{week.semesterName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -106,7 +106,15 @@ public class SemesterResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/semesters");
         return new ResponseEntity<>(semesterMapper.toDto(page.getContent()), headers, HttpStatus.OK);
     }
-
+    
+    @GetMapping("/semesters/current")
+    @Timed
+    public ResponseEntity<List<SemesterDTO>> getAllSemestersCurrent(Pageable pageable) {
+        log.debug("REST request to get a page of Semesters");
+        Page<Semester> page = semesterRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/semesters");
+        return new ResponseEntity<>(semesterMapper.toDto(page.getContent()), headers, HttpStatus.OK);
+    }
     /**
      * GET  /semesters/:id : get the "id" semester.
      *
