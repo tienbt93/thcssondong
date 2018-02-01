@@ -17,6 +17,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -107,6 +109,17 @@ public class LessonResource {
         return new ResponseEntity<>(lessonMapper.toDto(page.getContent()), headers, HttpStatus.OK);
     }
 
+    @GetMapping("/lessons/{weekid}")
+    @Timed
+    public ResponseEntity<List<LessonDTO>> getAllLessonsByWeekId(@PathVariable Long weekId) {
+        log.debug("REST request to get a page of Lessons");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+//        Long currentPrincipalName = authentication.get();
+        List<Lesson> listLesson = lessonRepository.findByWeekId(weekId);
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/lessons");
+        return new ResponseEntity<>(lessonMapper.toDto(listLesson), HttpStatus.OK);
+    }
     /**
      * GET  /lessons/:id : get the "id" lesson.
      *
@@ -121,7 +134,6 @@ public class LessonResource {
         LessonDTO lessonDTO = lessonMapper.toDto(lesson);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(lessonDTO));
     }
-
     /**
      * DELETE  /lessons/:id : delete the "id" lesson.
      *
