@@ -11,6 +11,7 @@ export class WeekMySuffix implements BaseEntity {
         public weekName?: string,
         public isActive?: Active,
         public semesterId?: number,
+        public semesterName?: string,
         public lessons?: BaseEntity[],
     ) {
     }

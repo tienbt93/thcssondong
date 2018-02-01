@@ -1,12 +1,13 @@
 package com.sd.thcs.service.dto;
 
 
-import java.time.LocalDate;
-import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
+
+import javax.validation.constraints.NotNull;
+
 import com.sd.thcs.domain.enumeration.Active;
 
 /**
@@ -30,8 +31,21 @@ public class SemesterDTO implements Serializable {
 
     @NotNull
     private Active isActive;
+    
+    private boolean isCurrent = false;
 
-    public Long getId() {
+    public boolean getIsCurrent() {
+    	LocalDate currentDate=LocalDate.now();
+    	if(currentDate.compareTo(startDate)>=0&&currentDate.compareTo(endDate)<=0)
+    		return true;
+		return false;
+	}
+
+	public void setCurrent(boolean isCurrent) {
+		this.isCurrent = isCurrent;
+	}
+
+	public Long getId() {
         return id;
     }
 

@@ -100,8 +100,8 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
         this.registerChangeInLessons();
     }
     onChangeSemester(newValue) {
-        console.log(newValue.value);
-        this.weekService.queryBySemesterId(newValue.value)
+        console.log(newValue);
+        this.weekService.queryBySemesterId(newValue)
             .subscribe((res: ResponseWrapper) => { this.weeks = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
     onChangeWeek(newValue) {
@@ -128,7 +128,7 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
     }
 
     sortId() {
-        const result = ['id' + ',' + 'desc'];
+        const result = ['startDate' + ',' + 'desc'];
         return result;
     }
 

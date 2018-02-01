@@ -23,7 +23,17 @@ public class WeekDTO implements Serializable {
 
     private Long semesterId;
 
-    public Long getId() {
+    private String semesterName;
+    
+    public String getSemesterName() {
+		return semesterName;
+	}
+
+	public void setSemesterName(String semesterName) {
+		this.semesterName = semesterName;
+	}
+
+	public Long getId() {
         return id;
     }
 

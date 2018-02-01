@@ -13,6 +13,7 @@ export class SemesterMySuffix implements BaseEntity {
         public endDate?: any,
         public totalWeek?: number,
         public isActive?: Active,
+        public isCurrent?: boolean,
         public weeks?: BaseEntity[],
     ) {
     }
