@@ -25,104 +25,19 @@
     </div>
     <div class="table-responsive" *ngIf="lessons">
 
-        <table class="table table-striped">
-            <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-                    <th jhiSortBy="id">
-                        <span jhiTranslate="global.field.id">Mã</span>
-                        <span class="fa fa-sort"></span>
+        <table class="table table-bordered">
+            <thead class="thead-inverse">
+                <tr>
+                    <th *ngFor="let dow of dateOfWeek ;">
+                        <span>{{dow}}</span>
                     </th>
-                    <th jhiSortBy="dow">
-                        <span jhiTranslate="thcssondongApp.lesson.dow">Thứ trong tuần</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="ordinalNumber">
-                        <span jhiTranslate="thcssondongApp.lesson.ordinalNumber">Tiết thứ</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="lessonTitle">
-                        <span jhiTranslate="thcssondongApp.lesson.lessonTitle">Tên bài dạy</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="isActive">
-                        <span jhiTranslate="thcssondongApp.lesson.isActive">Trạng thái</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="teacherId">
-                        <span jhiTranslate="thcssondongApp.lesson.teacher">Giáo viên</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="weekId">
-                        <span jhiTranslate="thcssondongApp.lesson.week">Tuần học</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="subjectId">
-                        <span jhiTranslate="thcssondongApp.lesson.subject">Môn học</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="roomId">
-                        <span jhiTranslate="thcssondongApp.lesson.room">Phòng học</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th jhiSortBy="classSchoolId">
-                        <span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp</span>
-                        <span class="fa fa-sort"></span>
-                    </th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let lesson of lessons ;trackBy: trackId">
-                    <td>
-                        <a [routerLink]="['../lesson-my-suffix', lesson.id ]">{{lesson.id}}</a>
+                <tr *ngFor="let rows of mapLesson">
+                    <td *ngFor="let cell of rows" > 
+                        {{cell}}
                     </td>
-                    <td jhiTranslate="{{'thcssondongApp.DateOfWeek.' + lesson.dow}}">{{lesson.dow}}</td>
-                    <td jhiTranslate="{{'thcssondongApp.OrdinalNumber.' + lesson.ordinalNumber}}">{{lesson.ordinalNumber}}</td>
-                    <td>{{lesson.lessonTitle}}</td>
-                    <td jhiTranslate="{{'thcssondongApp.Active.' + lesson.isActive}}">{{lesson.isActive}}</td>
-                    <td>
-                        <div *ngIf="lesson.teacherId">
-                            <a [routerLink]="['../teacher-my-suffix', lesson.teacherId  ]">{{lesson.teacherId}}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="lesson.weekId">
-                            <a [routerLink]="['../week-my-suffix', lesson.weekId  ]">{{lesson.weekName}}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="lesson.subjectId">
-                            <a [routerLink]="['../subject-my-suffix', lesson.subjectId  ]">{{lesson.subjectName}}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="lesson.roomId">
-                            <a [routerLink]="['../room-my-suffix', lesson.roomId  ]">{{lesson.roomName}}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="lesson.classSchoolId">
-                            <a [routerLink]="['../class-school-my-suffix', lesson.classSchoolId  ]">{{lesson.className}}</a>
-                        </div>
-                    </td>
-                    <!-- <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit" [routerLink]="['../lesson-my-suffix', lesson.id ]" class="btn btn-info btn-sm">
-                                <span class="fa fa-eye"></span>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
-                            </button>
-                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'lesson-my-suffix/'+ lesson.id + '/edit'} }]" replaceUrl="true"
-                                queryParamsHandling="merge" class="btn btn-primary btn-sm">
-                                <span class="fa fa-pencil"></span>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Sửa</span>
-                            </button>
-                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'lesson-my-suffix/'+ lesson.id + '/delete'} }]" replaceUrl="true"
-                                queryParamsHandling="merge" class="btn btn-danger btn-sm">
-                                <span class="fa fa-remove"></span>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Xóa</span>
-                            </button>
-                        </div>
-                    </td> -->
                 </tr>
             </tbody>
         </table>

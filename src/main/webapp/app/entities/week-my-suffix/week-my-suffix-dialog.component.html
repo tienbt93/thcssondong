@@ -41,7 +41,7 @@
             <label class="form-control-label" jhiTranslate="thcssondongApp.week.semester" for="field_semester">Kỳ học</label>
             <select class="form-control" id="field_semester" name="semester" [(ngModel)]="week.semesterId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="semesterOption.id" *ngFor="let semesterOption of semesters; trackBy: trackSemesterById">{{semesterOption.id}}</option>
+                <option [ngValue]="semesterOption.id" *ngFor="let semesterOption of semesters; trackBy: trackSemesterById">{{semesterOption.semesterName}}</option>
             </select>
         </div>
     </div>

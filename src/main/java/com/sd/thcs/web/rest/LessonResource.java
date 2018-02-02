@@ -9,6 +9,8 @@ import com.sd.thcs.web.rest.util.HeaderUtil;
 import com.sd.thcs.web.rest.util.PaginationUtil;
 import com.sd.thcs.service.dto.LessonDTO;
 import com.sd.thcs.service.mapper.LessonMapper;
+import com.sd.thcs.service.response.LessonTeacherRp;
+
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,16 +111,22 @@ public class LessonResource {
         return new ResponseEntity<>(lessonMapper.toDto(page.getContent()), headers, HttpStatus.OK);
     }
 
-    @GetMapping("/lessons/{weekid}")
+    @GetMapping("/lessons/byweek/{weekid}")
     @Timed
-    public ResponseEntity<List<LessonDTO>> getAllLessonsByWeekId(@PathVariable Long weekId) {
-        log.debug("REST request to get a page of Lessons");
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-//        Long currentPrincipalName = authentication.get();
-        List<Lesson> listLesson = lessonRepository.findByWeekId(weekId);
-//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/lessons");
-        return new ResponseEntity<>(lessonMapper.toDto(listLesson), HttpStatus.OK);
+    public ResponseEntity<LessonTeacherRp> getAllLessonsByWeekId(@PathVariable Long weekid) {
+		log.debug("REST request to get a page of Lessons");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String userLogin = authentication.getName();
+		// Long currentPrincipalName = authentication.get();
+		List<Lesson> listLesson = lessonRepository.findByWeekIdForTeacher(weekid, userLogin);
+		Long[][] mapLesson = new Long[8][7];
+		for (Lesson lesson : listLesson) {
+			mapLesson[lesson.getOrdinalNumber().ordinal()][lesson.getDow().ordinal()] = new Long(lesson.getId());
+		}
+		LessonTeacherRp response = new LessonTeacherRp();
+		response.setMapLesson(mapLesson);
+		response.setListLesson(lessonMapper.toDto(listLesson));
+		return new ResponseEntity<>(response, HttpStatus.OK);
     }
     /**
      * GET  /lessons/:id : get the "id" lesson.
