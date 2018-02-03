@@ -25,18 +25,40 @@
     </div>
     <div class="table-responsive" *ngIf="lessons">
 
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center">
             <thead class="thead-inverse">
                 <tr>
-                    <th *ngFor="let dow of dateOfWeek ;">
+                    <th *ngFor="let dow of dateOfWeek ;" >
                         <span>{{dow}}</span>
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <tr *ngFor="let rows of mapLesson">
                     <td *ngFor="let cell of rows" > 
-                        {{cell}}
+                        <div *ngIf="cell != -1; else empty" ><!-- {{cell}}
+                             {{lessons[cell].subjectName}} -->
+                            <div *ngIf="lessons[cell].subjectName != null">
+                                <a [routerLink]="['../subject-my-suffix', lessons[cell].subjectId  ]">{{lessons[cell].subjectName}}</a>
+                            </div>
+                            <div *ngIf="lessons[cell].lessonTitle != null">
+                                    {{lessons[cell].lessonTitle}}
+                                </div>
+                            <div *ngIf="lessons[cell].roomName != null">
+                                <a [routerLink]="['../room-my-suffix', lessons[cell].roomId  ]">{{lessons[cell].roomName}}</a>
+                            </div>
+                            <div *ngIf="lessons[cell].classSchoolId != null">
+                                <a [routerLink]="['../class-school-my-suffix', lessons[cell].classSchoolId  ]">{{lessons[cell].className}}</a>
+                            </div>
+                            <a 
+                                [routerLink]="['../lesson-my-suffix', lessons[cell].id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Xem</span>
+                        </a>
+                        </div>
+                        <ng-template #empty>Trống</ng-template>
+                        <!-- {{cell}} -->
                     </td>
                 </tr>
             </tbody>

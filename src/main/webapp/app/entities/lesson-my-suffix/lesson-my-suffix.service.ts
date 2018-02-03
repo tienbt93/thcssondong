@@ -43,7 +43,7 @@ export class LessonMySuffixService {
     }
     queryByWeekIdForTeacher(weekId: number): Observable<ResponseWrapper> {
         return this.http.get(`${this.resourceUrl + '/byweek/'}${weekId}`)
-            .map((res: Response) => this.convertResponse(res));
+            .map((res: Response) => this.convertResponseLessonByTeacher(res));
     }
     delete(id: number): Observable<Response> {
         return this.http.delete(`${this.resourceUrl}/${id}`);
@@ -57,7 +57,14 @@ export class LessonMySuffixService {
         }
         return new ResponseWrapper(res.headers, result, res.status);
     }
-
+    private convertResponseLessonByTeacher(res: Response): ResponseWrapper {
+        const jsonResponse = res.json();
+        // const result = [];
+        // for (let i = 0; i < jsonResponse.length; i++) {
+        //     result.push(this.convertItemFromServer(jsonResponse[i]));
+        // }
+        return new ResponseWrapper(res.headers, jsonResponse, res.status);
+    }
     /**
      * Convert a returned JSON object to LessonMySuffix.
      */
@@ -72,5 +79,12 @@ export class LessonMySuffixService {
     private convert(lesson: LessonMySuffix): LessonMySuffix {
         const copy: LessonMySuffix = Object.assign({}, lesson);
         return copy;
+    }
+    convertOpen(json: any): LessonMySuffix[] {
+        const result = [];
+        for (let i = 0; i < json.length; i++) {
+            result.push(this.convertItemFromServer(json[i]));
+        }
+        return result;
     }
 }
