@@ -41,7 +41,10 @@ export class LessonMySuffixService {
         return this.http.get(this.resourceUrl, options)
             .map((res: Response) => this.convertResponse(res));
     }
-
+    queryByWeekIdForTeacher(weekId: number): Observable<ResponseWrapper> {
+        return this.http.get(`${this.resourceUrl + '/byweek/'}${weekId}`)
+            .map((res: Response) => this.convertResponse(res));
+    }
     delete(id: number): Observable<Response> {
         return this.http.delete(`${this.resourceUrl}/${id}`);
     }

@@ -17,6 +17,7 @@ import { WeekMySuffix, WeekMySuffixService } from '../week-my-suffix';
 export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
     currentAccount: any;
     lessons: LessonMySuffix[];
+    mapLesson: number[][];
     error: any;
     success: any;
     eventSubscriber: Subscription;
@@ -31,6 +32,7 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
     reverse: any;
     semesters: SemesterMySuffix[];
     weeks: WeekMySuffix[];
+    dateOfWeek = ['Thứ Hai' , 'Thứ Ba' , 'Thứ Tư' , 'Thứ Năm' , 'Thứ Sáu' , 'Thứ Bảy' , 'Chủ Nhật'];
     constructor(
         private lessonService: LessonMySuffixService,
         private parseLinks: JhiParseLinks,
@@ -104,9 +106,12 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
         this.weekService.queryBySemesterId(newValue)
             .subscribe((res: ResponseWrapper) => { this.weeks = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
-    onChangeWeek(newValue) {
-        console.log(newValue);
-        this.loadAll();
+    onChangeWeek(weekId) {
+        console.log(weekId);
+        this.lessonService.queryByWeekIdForTeacher(weekId).subscribe(
+            (res: ResponseWrapper) => { this.lessons = res.json; },
+            (res: ResponseWrapper) => this.onError(res.json)
+            );
     }
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
@@ -137,7 +142,8 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
         this.totalItems = headers.get('X-Total-Count');
         this.queryCount = this.totalItems;
         // this.page = pagingParams.page;
-        this.lessons = data;
+        this.lessons = data.listLesson;
+        this.mapLesson = data.mapLesson;
     }
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
