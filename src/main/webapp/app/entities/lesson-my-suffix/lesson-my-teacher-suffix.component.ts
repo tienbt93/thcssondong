@@ -104,12 +104,16 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
     onChangeSemester(newValue) {
         console.log(newValue);
         this.weekService.queryBySemesterId(newValue)
-            .subscribe((res: ResponseWrapper) => { this.weeks = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe((res: ResponseWrapper) => {
+                 this.weeks = res.json;
+                 if ( this.weeks.length > 0)
+                    this.onChangeWeek(this.weeks[0].id);
+                }, (res: ResponseWrapper) => this.onError(res.json));
     }
     onChangeWeek(weekId) {
         console.log(weekId);
         this.lessonService.queryByWeekIdForTeacher(weekId).subscribe(
-            (res: ResponseWrapper) => { this.lessons = res.json; },
+            (res: ResponseWrapper) => this.onSuccessLoadLessonByTeacher(res.json),
             (res: ResponseWrapper) => this.onError(res.json)
             );
     }
@@ -144,6 +148,15 @@ export class LessonMyTeacherSuffixComponent implements OnInit, OnDestroy {
         // this.page = pagingParams.page;
         this.lessons = data.listLesson;
         this.mapLesson = data.mapLesson;
+        // console.log(this.mapLesson);
+    }
+    private onSuccessLoadLessonByTeacher(data) {
+        // console.log(data);
+        // this.lessons = data.listLesson;
+        this.lessons = this.lessonService.convertOpen(data.listLesson);
+        this.mapLesson = data.mapLesson;
+       /*  console.log(this.lessons);
+        console.log(this.mapLesson); */
     }
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);

@@ -1,6 +1,7 @@
 package com.sd.thcs.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.sd.thcs.domain.Lesson;
 
 import com.sd.thcs.repository.LessonRepository;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -119,9 +120,12 @@ public class LessonResource {
 		String userLogin = authentication.getName();
 		// Long currentPrincipalName = authentication.get();
 		List<Lesson> listLesson = lessonRepository.findByWeekIdForTeacher(weekid, userLogin);
-		Long[][] mapLesson = new Long[8][7];
+		Integer[][] mapLesson = new Integer[8][7] ;
+		for(int i=0;i<8;i++)
+			Arrays.fill(mapLesson[i], -1);
+		int index = 0;
 		for (Lesson lesson : listLesson) {
-			mapLesson[lesson.getOrdinalNumber().ordinal()][lesson.getDow().ordinal()] = new Long(lesson.getId());
+			mapLesson[lesson.getOrdinalNumber().ordinal()][lesson.getDow().ordinal()] = index++;;
 		}
 		LessonTeacherRp response = new LessonTeacherRp();
 		response.setMapLesson(mapLesson);

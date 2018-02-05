@@ -23,31 +23,31 @@
         <dt><span jhiTranslate="thcssondongApp.lesson.teacher">Giáo viên</span></dt>
         <dd>
             <div *ngIf="lesson.teacherId">
-                <a [routerLink]="['/teacher-my-suffix', lesson.teacherId]">{{lesson.teacherId}}</a>
+                <a [routerLink]="['/teacher-my-suffix', lesson.teacherId]">{{lesson.teacherName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.lesson.week">Tuần học</span></dt>
         <dd>
             <div *ngIf="lesson.weekId">
-                <a [routerLink]="['/week-my-suffix', lesson.weekId]">{{lesson.weekId}}</a>
+                <a [routerLink]="['/week-my-suffix', lesson.weekId]">{{lesson.weekName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.lesson.subject">Môn học</span></dt>
         <dd>
             <div *ngIf="lesson.subjectId">
-                <a [routerLink]="['/subject-my-suffix', lesson.subjectId]">{{lesson.subjectId}}</a>
+                <a [routerLink]="['/subject-my-suffix', lesson.subjectId]">{{lesson.subjectName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.lesson.room">Phòng học</span></dt>
         <dd>
             <div *ngIf="lesson.roomId">
-                <a [routerLink]="['/room-my-suffix', lesson.roomId]">{{lesson.roomId}}</a>
+                <a [routerLink]="['/room-my-suffix', lesson.roomId]">{{lesson.roomName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="thcssondongApp.lesson.classSchool">Lớp</span></dt>
         <dd>
             <div *ngIf="lesson.classSchoolId">
-                <a [routerLink]="['/class-school-my-suffix', lesson.classSchoolId]">{{lesson.classSchoolId}}</a>
+                <a [routerLink]="['/class-school-my-suffix', lesson.classSchoolId]">{{lesson.className}}</a>
             </div>
         </dd>
     </dl>
@@ -58,7 +58,7 @@
         <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Quay lại</span>
     </button>
 
-    <button type="button"
+    <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"
             [routerLink]="['/', { outlets: { popup: 'lesson-my-suffix/'+ lesson.id + '/edit'} }]"
             replaceUrl="true"
             queryParamsHandling="merge"

@@ -12,7 +12,7 @@ public class LessonTeacherRp  implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	
 	private List<LessonDTO> listLesson;
-	private Long[][] mapLesson;
+	private Integer[][] mapLesson;
 	
 	public LessonTeacherRp() {
 		// TODO Auto-generated constructor stub
@@ -26,11 +26,11 @@ public class LessonTeacherRp  implements Serializable  {
 		this.listLesson = listLesson;
 	}
 
-	public Long[][] getMapLesson() {
+	public Integer[][] getMapLesson() {
 		return mapLesson;
 	}
 
-	public void setMapLesson(Long[][] mapLesson) {
+	public void setMapLesson(Integer[][] mapLesson) {
 		this.mapLesson = mapLesson;
 	}
 	

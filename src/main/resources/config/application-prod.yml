@@ -29,7 +29,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/thcssondong?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: Trantien1993
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -47,10 +47,10 @@ spring:
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: smtp.gmail.com 
+        port: 587
+        username: tieutu.ptit@gmail.com
+        password: trantien1993
     thymeleaf:
         cache: true
 
@@ -106,7 +106,7 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: thcssondong@localhost
+        from: tieutu.ptit@gmail.com
         base-url: http://my-server-url-to-change # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
