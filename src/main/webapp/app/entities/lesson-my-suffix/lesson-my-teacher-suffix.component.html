@@ -16,11 +16,11 @@
     <div>
         <label class="label label-default" jhiTranslate="thcssondongApp.week.semester">Kỳ học</label>
         <select id="field_semester" name="semester"   (change)="onChangeSemester($event.target.value)">
-            <option [ngValue]="semesterOption.id" value ="{{semesterOption.id}}" *ngFor="let semesterOption of semesters; trackBy: trackSemesterById" [selected]="semesterOption.isCurrent == true">{{semesterOption.semesterName}}</option>
+            <option [ngValue]="semesterOption.id" value ="{{semesterOption.id}}" *ngFor="let semesterOption of semesters;" [selected]="semesterOption.isCurrent == true">{{semesterOption.semesterName}}</option>
         </select>
         <label class="label label-default" jhiTranslate="thcssondongApp.lesson.week">Tuần học</label>
         <select id="field_week" name="week"  (change)="onChangeWeek($event.target.value)">
-            <option [ngValue]="weekOption.id" value ="{{weekOption.id}}" *ngFor="let weekOption of weeks; trackBy: trackWeekById">{{weekOption.weekName}}</option>
+            <option [ngValue]="weekOption.id" value ="{{weekOption.id}}" *ngFor="let weekOption of weeks;">{{weekOption.weekName}}</option>
         </select>
     </div>
     <div class="table-responsive" *ngIf="lessons">
